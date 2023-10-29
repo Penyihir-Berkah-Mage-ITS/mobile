@@ -6,7 +6,12 @@ class RegisterController extends GetxController {
   GlobalKey<FormState> nameKey = GlobalKey<FormState>();
 
   RxString usernameValue = "".obs;
-  TextEditingController username = TextEditingController();
+  RxInt gender = (-1).obs;
+
+  RxMap<String, TextEditingController> form = {
+    "username": TextEditingController(),
+    "gender": TextEditingController(),
+  }.obs;
 
   List<String> exampleName = <String>[
     "skywalker123",
@@ -16,6 +21,6 @@ class RegisterController extends GetxController {
     'galacticQueen',
     'starGazer123',
     'spaceExplorer42',
-    'lightSaberMaster'
+    'lightSaberMaster',
   ];
 }

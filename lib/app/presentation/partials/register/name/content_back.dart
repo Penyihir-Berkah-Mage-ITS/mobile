@@ -39,11 +39,11 @@ class ContentBack extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             child: AppInput(
-              controller: controller.username,
+              controller: controller.form['username']!,
               placeholder: "contoh: lovesky123",
               validator: (e) {
                 if (e!.isEmpty) {
-                  return 'asd';
+                  return 'Username can\'t be empty';
                 }
                 return null;
               },

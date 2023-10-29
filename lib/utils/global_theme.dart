@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 ThemeData globalTheme() {
   return ThemeData(
     fontFamily: "Hauora",
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: ColorConstants.slate[25],
     colorScheme: appColorScheme,
   );
 }

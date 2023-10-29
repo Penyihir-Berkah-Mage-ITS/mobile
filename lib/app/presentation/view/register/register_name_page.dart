@@ -2,6 +2,7 @@ import 'package:asa/app/controller/register_controller.dart';
 import 'package:asa/app/presentation/partials/register/name/card_name.dart';
 import 'package:asa/app/presentation/partials/register/name/content_back.dart';
 import 'package:asa/app/presentation/widget/app_button.dart';
+import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +10,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:transparent_pointer/transparent_pointer.dart';
 
-class RegisterPage extends GetView<RegisterController> {
-  const RegisterPage({super.key});
+class RegisterNamePage extends GetView<RegisterController> {
+  const RegisterNamePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class RegisterPage extends GetView<RegisterController> {
                   children: [
                     IgnorePointer(
                       child: SizedBox(
-                        height: 360.h,
+                        height: 370.h,
                       ),
                     ),
                     GestureDetector(
@@ -38,7 +39,7 @@ class RegisterPage extends GetView<RegisterController> {
                           horizontal: 20.w,
                           vertical: 36.h,
                         ),
-                        constraints: BoxConstraints(minHeight: 440.h),
+                        constraints: BoxConstraints(minHeight: 430.h),
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -70,7 +71,8 @@ class RegisterPage extends GetView<RegisterController> {
                                               controller.usernameValue.value,
                                           onPressed: (e) {
                                             controller.usernameValue.value = e!;
-                                            controller.username.text = e;
+                                            controller.form['username']!.text =
+                                                e;
                                           },
                                         ),
                                       ),
@@ -82,7 +84,9 @@ class RegisterPage extends GetView<RegisterController> {
                               AppButton(
                                 onPressed: () {
                                   if (controller.nameKey.currentState!
-                                      .validate()) {}
+                                      .validate()) {
+                                    Get.toNamed(AppRoute.registerGender);
+                                  }
                                 },
                                 text: "Lanjutkan",
                               ),

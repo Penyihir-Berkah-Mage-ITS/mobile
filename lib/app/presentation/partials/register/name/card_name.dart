@@ -16,7 +16,6 @@ class CardName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(isChoosed);
     return GestureDetector(
       onTap: () {
         onPressed(text);

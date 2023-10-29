@@ -27,6 +27,14 @@ class ColorConstants {
     800: Color(0xff17501D),
     900: Color(0xff123D16),
   };
+
+  static Map<int, Gradient> gradient = {
+    1: RadialGradient(
+      colors: [Color(0xFF34C759), Color(0xFF2A9134)],
+      center: Alignment(1.0, 0.0),
+      radius: 1.1225,
+    ),
+  };
 }
 
 final ColorScheme appColorScheme = ColorScheme(

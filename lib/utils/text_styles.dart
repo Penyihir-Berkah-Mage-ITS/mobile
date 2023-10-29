@@ -116,7 +116,7 @@ TextStyle h2BTextStyle({
   return TextStyle(
     fontSize: size ?? 21.sp,
     color: color ?? ColorConstants.slate[900],
-    fontWeight: weight ?? FontWeight.w400,
+    fontWeight: weight ?? FontWeight.bold,
     fontFamily: fontFamily ?? 'Hauora',
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,
@@ -180,7 +180,7 @@ TextStyle h3BTextStyle({
   return TextStyle(
     fontSize: size ?? 18.sp,
     color: color ?? ColorConstants.slate[900],
-    fontWeight: weight ?? FontWeight.w400,
+    fontWeight: weight ?? FontWeight.bold,
     fontFamily: fontFamily ?? 'Hauora',
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,
@@ -244,7 +244,7 @@ TextStyle h4BTextStyle({
   return TextStyle(
     fontSize: size ?? 16.sp,
     color: color ?? ColorConstants.slate[900],
-    fontWeight: weight ?? FontWeight.w400,
+    fontWeight: weight ?? FontWeight.bold,
     fontFamily: fontFamily ?? 'Hauora',
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,

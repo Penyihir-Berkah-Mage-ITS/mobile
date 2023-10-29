@@ -1,0 +1,90 @@
+import 'package:asa/styles/color_constants.dart';
+import 'package:asa/utils/text_styles.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+enum AppButtonType {
+  contained,
+  outlined;
+}
+
+enum AppButtonVariant {
+  primary,
+  secondary,
+}
+
+class AppButton extends StatelessWidget {
+  final AppButtonType type;
+  final void Function()? onPressed;
+  final String text;
+  final AppButtonVariant variant;
+
+  const AppButton({
+    super.key,
+    this.type = AppButtonType.contained,
+    required this.onPressed,
+    required this.text,
+    this.variant = AppButtonVariant.primary,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (type == AppButtonType.outlined) {
+      return Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: ColorConstants.primary[500]!,
+            width: 1.5.w,
+          ),
+          borderRadius: BorderRadius.circular(30.w),
+        ),
+        child: OutlinedButton(
+          onPressed: onPressed,
+          style: OutlinedButton.styleFrom(
+            backgroundColor: Colors.transparent,
+            padding: EdgeInsets.symmetric(
+              vertical: 13.h,
+              horizontal: 24,
+            ),
+            // foregroundColor: variant == AppButtonVariant.primary
+            //     ? ColorConstants.green[60]!
+            //     : ColorConstants.negative[50]!,
+            shadowColor: Colors.transparent,
+            elevation: 0,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          child: Text(
+            text,
+            style: h4BTextStyle(
+              color: ColorConstants.primary[500],
+            ),
+          ),
+        ),
+      );
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorConstants.primary[500],
+        borderRadius: BorderRadius.circular(30.w),
+      ),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          padding: EdgeInsets.symmetric(
+            vertical: 13.h,
+            horizontal: 24,
+          ),
+          shadowColor: Colors.transparent,
+          elevation: 0,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
+        child: Text(
+          text,
+          style: h4BTextStyle(color: Colors.white),
+        ),
+      ),
+    );
+  }
+}

@@ -1,7 +1,9 @@
 import 'package:asa/app/bindings/login_binding.dart';
 import 'package:asa/app/bindings/onboarding_bindings.dart';
+import 'package:asa/app/bindings/register_binding.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
+import 'package:asa/app/presentation/view/register/register_name_page.dart';
 import 'package:asa/app/presentation/view/splash_page.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:get/get.dart';
@@ -21,6 +23,11 @@ List<GetPage> appPage() {
       name: AppRoute.login,
       page: () => LoginPage(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: AppRoute.registerName,
+      page: () => RegisterPage(),
+      binding: RegisterBinding(),
     ),
   ];
 }

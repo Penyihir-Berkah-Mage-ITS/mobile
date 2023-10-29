@@ -24,6 +24,8 @@ dependencies:
   dio: ^5.3.3
   flutter_secure_storage: ^9.0.0
   get: ^4.6.5
+  pointer_interceptor: ^0.9.3+5
+  transparent_pointer: ^1.0.0
 
 dev_dependencies:
   flutter_test:

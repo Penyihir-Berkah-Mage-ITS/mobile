@@ -3,6 +3,7 @@ import 'package:asa/app/presentation/widget/app_button.dart';
 import 'package:asa/app/presentation/widget/app_header.dart';
 import 'package:asa/app/presentation/widget/app_input.dart';
 import 'package:asa/app/presentation/widget/scrollable_constraints.dart';
+import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,9 @@ class LoginPage extends GetView<LoginController> {
                       style: body3TextStyle(),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppRoute.registerName);
+                      },
                       child: Text(
                         'Buat akun',
                         style: body3BTextStyle(
@@ -69,6 +72,7 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ],
                 ),
+                SizedBox(height: 40.h),
               ],
             ),
           ),

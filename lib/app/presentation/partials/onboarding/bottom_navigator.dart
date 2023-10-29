@@ -61,7 +61,9 @@ class BottomNavigator extends StatelessWidget {
                 SizedBox(height: 15.h),
                 AppButton(
                   type: AppButtonType.outlined,
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(AppRoute.registerName);
+                  },
                   text: 'Buat akun baru',
                 ),
               ],

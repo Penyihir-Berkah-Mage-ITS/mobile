@@ -246,7 +246,8 @@ class _AppInputState extends State<AppInput> {
 
   InputDecoration _renderInputDecoration(FormFieldState<String> state) {
     return InputDecoration(
-      hintStyle: body4BTextStyle(
+      hintStyle: body4TextStyle(
+        weight: state.errorText != null ? FontWeight.w500 : FontWeight.normal,
         color: state.errorText != null
             ? ColorConstants.error
             : ColorConstants.slate[400],

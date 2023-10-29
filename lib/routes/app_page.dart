@@ -4,14 +4,15 @@ import 'package:asa/app/bindings/register_binding.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
 import 'package:asa/app/presentation/view/register/register_avatar_page.dart';
+import 'package:asa/app/presentation/view/register/register_form_page.dart';
 import 'package:asa/app/presentation/view/register/register_gender_page.dart';
 import 'package:asa/app/presentation/view/register/register_name_page.dart';
 import 'package:asa/app/presentation/view/splash_page.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:get/get.dart';
 
-List<GetPage> appPage() {
-  return <GetPage>[
+List<GetPage<String>> appPage() {
+  return <GetPage<String>>[
     GetPage(
       name: AppRoute.splash,
       page: () => SplashPage(),
@@ -41,6 +42,12 @@ List<GetPage> appPage() {
     GetPage(
       name: AppRoute.registerAvatar,
       page: () => RegisterAvatarPage(),
+      binding: RegisterBinding(),
+      transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoute.registerForm,
+      page: () => RegisterFormPage(),
       binding: RegisterBinding(),
       transition: Transition.rightToLeft,
     ),

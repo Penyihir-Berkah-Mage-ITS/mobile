@@ -2,6 +2,7 @@ import 'package:asa/app/controller/register_controller.dart';
 import 'package:asa/app/presentation/widget/app_button.dart';
 import 'package:asa/app/presentation/widget/app_header.dart';
 import 'package:asa/app/presentation/widget/scrollable_constraints.dart';
+import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -64,8 +65,11 @@ class RegisterAvatarPage extends GetView<RegisterController> {
               SizedBox(height: 20.h),
               Obx(
                 () => AppButton(
-                  onPressed:
-                      controller.profilePicture.value == -1 ? null : () {},
+                  onPressed: controller.profilePicture.value == -1
+                      ? null
+                      : () {
+                          Get.toNamed(AppRoute.registerForm);
+                        },
                   text: "Lanjutkan",
                 ),
               ),

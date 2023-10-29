@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class RegisterController extends GetxController {
   static RegisterController get i => Get.find<RegisterController>();
   GlobalKey<FormState> nameKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   RxString usernameValue = "".obs;
   RxInt gender = (-1).obs;
@@ -11,7 +12,9 @@ class RegisterController extends GetxController {
 
   RxMap<String, TextEditingController> form = {
     "username": TextEditingController(),
+    'password': TextEditingController(),
     "gender": TextEditingController(),
+    "email": TextEditingController(),
     "profile_picture": TextEditingController(),
   }.obs;
 
@@ -25,4 +28,8 @@ class RegisterController extends GetxController {
     'spaceExplorer42',
     'lightSaberMaster',
   ];
+
+  void register() {
+    if (formKey.currentState!.validate()) {}
+  }
 }

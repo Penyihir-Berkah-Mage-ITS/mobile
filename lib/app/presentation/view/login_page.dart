@@ -61,7 +61,11 @@ class LoginPage extends GetView<LoginController> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(AppRoute.registerName);
+                        if (Get.previousRoute == AppRoute.registerForm) {
+                          Get.back();
+                        } else {
+                          Get.toNamed(AppRoute.registerName);
+                        }
                       },
                       child: Text(
                         'Buat akun',

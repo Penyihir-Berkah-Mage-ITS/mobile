@@ -53,15 +53,17 @@ class _AppInputState extends State<AppInput> {
   final FocusNode _focus = FocusNode();
   GlobalKey inputKey = GlobalKey();
 
+  void initInput() {
+    setState(() {
+      isInit = false;
+    });
+  }
+
   @override
   void initState() {
     super.initState();
 
-    widget.controller.addListener(() {
-      setState(() {
-        isInit = false;
-      });
-    });
+    widget.controller.addListener(initInput);
 
     setState(() {
       isEmpty = widget.controller.text.isEmpty;
@@ -85,8 +87,7 @@ class _AppInputState extends State<AppInput> {
   @override
   void dispose() {
     super.dispose();
-    widget.controller.dispose();
-    _focus.dispose();
+    widget.controller.removeListener(initInput);
   }
 
   @override

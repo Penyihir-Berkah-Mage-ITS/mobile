@@ -63,7 +63,8 @@ class AppButton extends StatelessWidget {
       );
     }
 
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 350),
       decoration: BoxDecoration(
         color: onPressed == null
             ? ColorConstants.slate[300]

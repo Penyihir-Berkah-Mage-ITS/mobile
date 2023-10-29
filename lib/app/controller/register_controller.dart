@@ -7,10 +7,12 @@ class RegisterController extends GetxController {
 
   RxString usernameValue = "".obs;
   RxInt gender = (-1).obs;
+  RxInt profilePicture = (-1).obs;
 
   RxMap<String, TextEditingController> form = {
     "username": TextEditingController(),
     "gender": TextEditingController(),
+    "profile_picture": TextEditingController(),
   }.obs;
 
   List<String> exampleName = <String>[

@@ -1,5 +1,6 @@
 import 'package:asa/app/controller/onboarding_controller.dart';
 import 'package:asa/app/presentation/widget/app_button.dart';
+import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,7 +53,9 @@ class BottomNavigator extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 AppButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(AppRoute.login);
+                  },
                   text: 'Masuk dengan akun yang ada',
                 ),
                 SizedBox(height: 15.h),

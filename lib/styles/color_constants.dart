@@ -35,6 +35,8 @@ class ColorConstants {
       radius: 1.1225,
     ),
   };
+
+  static Color error = Colors.red[400]!;
 }
 
 final ColorScheme appColorScheme = ColorScheme(

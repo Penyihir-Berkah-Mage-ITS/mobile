@@ -65,9 +65,12 @@ class AppButton extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: ColorConstants.primary[500],
+        color: onPressed == null
+            ? ColorConstants.slate[300]
+            : ColorConstants.primary[500],
         borderRadius: BorderRadius.circular(30.w),
       ),
+      clipBehavior: Clip.hardEdge,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(

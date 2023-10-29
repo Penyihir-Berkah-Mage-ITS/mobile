@@ -68,7 +68,9 @@ class AppButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: onPressed == null
             ? ColorConstants.slate[300]
-            : ColorConstants.primary[500],
+            : variant == AppButtonVariant.primary
+                ? ColorConstants.primary[500]
+                : ColorConstants.error,
         borderRadius: BorderRadius.circular(30.w),
       ),
       clipBehavior: Clip.hardEdge,

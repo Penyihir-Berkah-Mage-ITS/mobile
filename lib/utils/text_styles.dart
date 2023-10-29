@@ -628,7 +628,7 @@ TextStyle body5BTextStyle({
   return TextStyle(
     fontSize: size ?? 12.sp,
     color: color ?? ColorConstants.slate[900],
-    fontWeight: weight ?? FontWeight.w400,
+    fontWeight: weight ?? FontWeight.bold,
     fontFamily: fontFamily ?? 'Hauora',
     letterSpacing: letterSpacing,
     fontStyle: fontStyle,

@@ -40,6 +40,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/logo/
+    - assets/icons/
 
     # Fonts
     - assets/fonts/Hauora/

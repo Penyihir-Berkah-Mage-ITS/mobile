@@ -44,8 +44,8 @@ class MyApp extends StatelessWidget {
                   theme: globalTheme(),
                   getPages: appPage(),
                   initialRoute: snapshot.data ?? false
-                      ? AppRoute.splash
-                      : AppRoute.splash,
+                      ? AppRoute.profile
+                      : AppRoute.profile,
                   builder: (context, child) {
                     return MediaQuery(
                       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),

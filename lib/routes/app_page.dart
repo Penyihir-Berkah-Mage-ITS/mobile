@@ -3,6 +3,7 @@ import 'package:asa/app/bindings/onboarding_bindings.dart';
 import 'package:asa/app/bindings/register_binding.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
+import 'package:asa/app/presentation/view/profile/profile_page.dart';
 import 'package:asa/app/presentation/view/register/register_avatar_page.dart';
 import 'package:asa/app/presentation/view/register/register_form_page.dart';
 import 'package:asa/app/presentation/view/register/register_gender_page.dart';
@@ -50,6 +51,10 @@ List<GetPage<String>> appPage() {
       page: () => RegisterFormPage(),
       binding: RegisterBinding(),
       transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoute.profile,
+      page: () => ProfilePage(),
     ),
   ];
 }

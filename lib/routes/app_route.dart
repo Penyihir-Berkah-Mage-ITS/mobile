@@ -7,4 +7,6 @@ class AppRoute {
   static String registerGender = "/register/gender";
   static String registerAvatar = "/register/avatar";
   static String registerForm = "/register/form";
+
+  static String profile = "/profile";
 }

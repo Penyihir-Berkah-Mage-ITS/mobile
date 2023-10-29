@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ColorConstants {
   static Map<int, Color> slate = {
@@ -36,7 +37,19 @@ class ColorConstants {
     ),
   };
 
-  static Color error = Colors.red[400]!;
+  static Map<int, BoxShadow> shadow = {
+    1: BoxShadow(
+      color: Colors.black.withOpacity(.1),
+      offset: Offset(0, 0),
+      blurRadius: 40.sp,
+    ),
+    2: BoxShadow(
+      color: Colors.black.withOpacity(.1),
+      offset: Offset(0, 4),
+      blurRadius: 40.sp,
+    ),
+  };
+  static Color error = Color(0xffFF574D);
 }
 
 final ColorScheme appColorScheme = ColorScheme(

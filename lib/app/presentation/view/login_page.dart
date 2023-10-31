@@ -19,65 +19,81 @@ class LoginPage extends GetView<LoginController> {
       appBar: AppHeader(title: ''),
       body: SafeArea(
         child: ScrollableConstraints(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  'Senang melihat Anda\nkembali.',
-                  style: h2BTextStyle(),
-                ),
-                SizedBox(height: 30.h),
-                AppInput(
-                  controller: TextEditingController(),
-                  placeholder: 'Masukkan Username',
-                  label: "Username",
-                ),
-                SizedBox(height: 16.h),
-                AppInput(
-                  controller: TextEditingController(),
-                  placeholder: 'Masukkan Alamat Email',
-                  label: "Password",
-                  obscureText: true,
-                ),
-                SizedBox(height: 4.h),
-                GestureDetector(
-                  child: Text(
-                    'Lupa Password?',
-                    style: body4BTextStyle(color: ColorConstants.primary[500]),
+          child: Form(
+            key: controller.formKey,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Senang melihat Anda\nkembali.',
+                    style: h2BTextStyle(),
                   ),
-                ),
-                SizedBox(height: 20.h),
-                Spacer(),
-                AppButton(onPressed: null, text: "Masuk"),
-                SizedBox(height: 15.h),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Belum punya akun? ',
-                      style: body3TextStyle(),
+                  SizedBox(height: 30.h),
+                  AppInput(
+                    controller: controller.form['username']!,
+                    placeholder: 'Masukkan Username',
+                    label: "Username",
+                    validator: (e) {
+                      if (e!.isEmpty) {
+                        return "Username tidak boleh kosong";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 16.h),
+                  AppInput(
+                    controller: controller.form['password']!,
+                    placeholder: 'Masukkan Password',
+                    label: "Password",
+                    obscureText: true,
+                    validator: (e) {
+                      if (e!.isEmpty) {
+                        return "Password tidak boleh kosong";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 4.h),
+                  GestureDetector(
+                    child: Text(
+                      'Lupa Password?',
+                      style:
+                          body4BTextStyle(color: ColorConstants.primary[500]),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        if (Get.previousRoute == AppRoute.registerForm) {
-                          Get.back();
-                        } else {
-                          Get.toNamed(AppRoute.registerName);
-                        }
-                      },
-                      child: Text(
-                        'Buat akun',
-                        style: body3BTextStyle(
-                          color: ColorConstants.primary[500],
+                  ),
+                  SizedBox(height: 40.h),
+                  Spacer(),
+                  AppButton(onPressed: controller.login, text: "Masuk"),
+                  SizedBox(height: 15.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Belum punya akun? ',
+                        style: body3TextStyle(),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          if (Get.previousRoute == AppRoute.registerForm) {
+                            Get.back();
+                          } else {
+                            Get.toNamed(AppRoute.registerName);
+                          }
+                        },
+                        child: Text(
+                          'Buat akun',
+                          style: body3BTextStyle(
+                            color: ColorConstants.primary[500],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 40.h),
-              ],
+                    ],
+                  ),
+                  SizedBox(height: 40.h),
+                ],
+              ),
             ),
           ),
         ),

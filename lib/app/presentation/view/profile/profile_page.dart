@@ -1,3 +1,4 @@
+import 'package:asa/app/controller/cache_controller.dart';
 import 'package:asa/app/presentation/partials/profile/about.dart';
 import 'package:asa/app/presentation/partials/profile/account_settings.dart';
 import 'package:asa/app/presentation/partials/profile/card_verification.dart';
@@ -9,8 +10,19 @@ import 'package:asa/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
+  void initState() {
+    super.initState();
+    CacheController.i.getUserData();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,6 @@ part 'user_model.g.dart';
 
 @JsonSerializable()
 class UserModel implements ModelFactory {
-  @JsonKey(name: "ID")
   String id;
 
   String username;
@@ -20,6 +19,7 @@ class UserModel implements ModelFactory {
 
   @JsonKey(name: "is_verified")
   bool isVerified;
+  String password;
 
   String CreatedAt;
   String UpdatedAt;
@@ -35,6 +35,7 @@ class UserModel implements ModelFactory {
     required this.profilePicture,
     required this.type,
     required this.username,
+    required this.password,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

@@ -1,8 +1,6 @@
 import 'package:asa/app/models/location/province_model.dart';
 import 'package:asa/app/models/location/regency_model.dart';
 import 'package:asa/services/api/api.dart';
-import 'package:asa/utils/show_alert.dart';
-import 'package:get/get.dart';
 
 class LocationRepository {
   static Future<List<ProvinceModel>> getProvinces() async {

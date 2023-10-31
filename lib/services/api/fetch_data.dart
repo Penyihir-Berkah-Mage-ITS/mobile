@@ -1,4 +1,3 @@
-import 'package:asa/app/models/location/province_model.dart';
 import 'package:asa/services/api/api_exception.dart';
 import 'package:asa/utils/show_alert.dart';
 import 'package:dio/dio.dart';
@@ -47,7 +46,7 @@ Future<ApiResponse<T>> fetchData<T>({
           if (message.toLowerCase().contains("token")) {
             logoutHandler();
           } else {
-            showAlert(response!.data['message']);
+            showAlert(response!.data['error']);
           }
         } else {
           showAlert(response?.statusMessage ?? e.message ?? e.toString());
@@ -104,7 +103,7 @@ Future<ApiResponses<T>> fetchMultipleData<T>({
           if (message.toLowerCase().contains("token")) {
             logoutHandler();
           } else {
-            showAlert(response!.data['message']);
+            showAlert(response!.data['error']);
           }
         } else {
           showAlert(response?.statusMessage ?? e.message ?? e.toString());

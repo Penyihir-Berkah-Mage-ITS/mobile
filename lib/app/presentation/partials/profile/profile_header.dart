@@ -1,3 +1,4 @@
+import 'package:asa/app/controller/cache_controller.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({super.key});
+  CacheController controller = CacheController.i;
+  ProfileHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var data = controller.user.value;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -22,7 +25,7 @@ class ProfileHeader extends StatelessWidget {
       child: Row(
         children: [
           SvgPicture.asset(
-            "assets/images/avatar_1.svg",
+            "assets/images/avatar_7.svg",
             width: 80.w,
             height: 80.w,
           ),
@@ -32,11 +35,13 @@ class ProfileHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  "stardreamin123",
+                  data?.username ?? '',
                   style: body3BTextStyle(),
                 ),
                 Text(
-                  "+62 823 456 7890",
+                  data?.phone == ""
+                      ? "Phone number not set"
+                      : (data?.phone ?? ""),
                   style: body5TextStyle(
                     color: ColorConstants.slate[400],
                   ),

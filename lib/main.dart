@@ -1,6 +1,7 @@
 import 'package:asa/app/bindings/global_bindings.dart';
 import 'package:asa/routes/app_page.dart';
 import 'package:asa/routes/app_route.dart';
+import 'package:asa/services/token/app_token.dart';
 import 'package:asa/utils/global_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
             FocusManager.instance.primaryFocus?.unfocus();
           },
           child: FutureBuilder(
-            future: a(),
+            future: UserToken.checkToken(),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return GetMaterialApp(
@@ -43,10 +44,8 @@ class MyApp extends StatelessWidget {
                   title: 'MyEco',
                   theme: globalTheme(),
                   getPages: appPage(),
-                  initialRoute: AppRoute.speakup,
-                  // initialRoute: snapshot.data ?? false
-                  //     ? AppRoute.profile
-                  //     : AppRoute.profile,
+                  initialRoute:
+                      snapshot.data ?? false ? AppRoute.home : AppRoute.splash,
                   builder: (context, child) {
                     return MediaQuery(
                       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),

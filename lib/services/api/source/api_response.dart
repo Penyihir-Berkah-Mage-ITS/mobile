@@ -7,29 +7,33 @@ class ApiResponse<T> extends BaseResponse {
 
   ApiResponse({
     this.data,
-    required String message,
-    required int status,
-  }) : super(message: message, status: status);
+    required super.message,
+    required super.success,
+    super.error,
+  });
 
   factory ApiResponse.fromJson(
     Map<String, dynamic> json,
   ) {
     if (json['data'] == null) {
       return ApiResponse<T>(
-        message: json['message'],
-        status: json['status'],
+        message: json["message"],
+        success: json["success"],
+        error: json["error"],
       );
     }
     if (T == dynamic) {
       return ApiResponse<T>(
-        message: json['message'],
-        status: json['status'],
+        message: json["message"],
+        success: json["success"],
+        error: json["error"],
         data: json['data'],
       );
     }
     return ApiResponse<T>(
-      message: json['message'],
-      status: json['status'],
+      message: json["message"],
+      success: json["success"],
+      error: json["error"],
       data: _Converter<T>().fromJson(json['data']),
     );
   }
@@ -39,30 +43,34 @@ class ApiResponses<T> extends BaseResponse {
   List<T>? data;
 
   ApiResponses({
-    this.data = const [],
-    required String message,
-    required int status,
-  }) : super(message: message, status: status);
+    this.data,
+    required super.message,
+    required super.success,
+    super.error,
+  });
 
   factory ApiResponses.fromJson(
     Map<String, dynamic> json,
   ) {
     if (json['data'] == null) {
       return ApiResponses<T>(
-        message: json['message'],
-        status: json['status'],
+        message: json["message"],
+        success: json["success"],
+        error: json["error"],
       );
     }
     if (T == dynamic) {
       return ApiResponses<T>(
-        message: json['message'],
-        status: json['status'],
+        message: json["message"],
+        success: json["success"],
+        error: json["error"],
         data: json['data'],
       );
     }
     return ApiResponses<T>(
-      message: json['message'],
-      status: json['status'],
+      message: json["message"],
+      success: json["success"],
+      error: json["error"],
       data: List<T>.from((json["results"] ?? json["data"])
           .map((x) => _Converter<T?>().fromJson(x))),
     );

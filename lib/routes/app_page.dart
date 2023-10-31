@@ -1,6 +1,8 @@
+import 'package:asa/app/bindings/home_bindings.dart';
 import 'package:asa/app/bindings/login_binding.dart';
 import 'package:asa/app/bindings/onboarding_bindings.dart';
 import 'package:asa/app/bindings/register_binding.dart';
+import 'package:asa/app/presentation/view/home_page.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
 import 'package:asa/app/presentation/view/profile/profile_page.dart';
@@ -55,6 +57,11 @@ List<GetPage<String>> appPage() {
     GetPage(
       name: AppRoute.profile,
       page: () => ProfilePage(),
+    ),
+    GetPage(
+      name: AppRoute.home,
+      page: () => HomePage(),
+      binding: HomeBinding(),
     ),
   ];
 }

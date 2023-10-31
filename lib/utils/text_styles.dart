@@ -30,7 +30,7 @@ TextStyle h1TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -62,7 +62,7 @@ TextStyle h1BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -94,7 +94,7 @@ TextStyle h2TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -126,7 +126,7 @@ TextStyle h2BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -158,7 +158,7 @@ TextStyle h3TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -190,7 +190,7 @@ TextStyle h3BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -222,7 +222,7 @@ TextStyle h4TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -254,7 +254,7 @@ TextStyle h4BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -286,7 +286,7 @@ TextStyle h5TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -318,7 +318,7 @@ TextStyle h5BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -350,7 +350,7 @@ TextStyle body1TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -382,7 +382,7 @@ TextStyle body1BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -414,7 +414,7 @@ TextStyle body2TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -446,7 +446,7 @@ TextStyle body2BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -478,7 +478,7 @@ TextStyle body3TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -510,7 +510,7 @@ TextStyle body3BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -542,7 +542,7 @@ TextStyle body4TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -574,7 +574,7 @@ TextStyle body4BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -606,7 +606,7 @@ TextStyle body5TextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }
 
@@ -638,6 +638,6 @@ TextStyle body5BTextStyle({
     wordSpacing: wordSpacing,
     textBaseline: textBaseline,
     backgroundColor: backgroundColor,
-    height: 1.5,
+    height: height ?? 1.5,
   );
 }

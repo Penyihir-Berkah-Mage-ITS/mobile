@@ -49,7 +49,7 @@ class ColorConstants {
       blurRadius: 40.sp,
     ),
   };
-  static Color error = Color(0xffFF574D);
+  static Color error = Color(0xffFF405F);
 }
 
 final ColorScheme appColorScheme = ColorScheme(

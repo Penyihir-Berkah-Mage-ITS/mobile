@@ -12,6 +12,7 @@ import 'package:asa/app/presentation/view/register/register_avatar_page.dart';
 import 'package:asa/app/presentation/view/register/register_form_page.dart';
 import 'package:asa/app/presentation/view/register/register_gender_page.dart';
 import 'package:asa/app/presentation/view/register/register_name_page.dart';
+import 'package:asa/app/presentation/view/speakup_page.dart';
 import 'package:asa/app/presentation/view/splash_page.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:get/get.dart';
@@ -69,6 +70,10 @@ List<GetPage<String>> appPage() {
       name: AppRoute.post(":id"),
       page: () => CommentPage(),
       binding: CommentBinding(),
+    ),
+    GetPage(
+      name: AppRoute.speakup,
+      page: () => SpeakupPage(),
     ),
   ];
 }

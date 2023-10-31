@@ -49,6 +49,12 @@ class AppBottomBar extends StatelessWidget {
             SvgPicture.asset(
               "assets/icons/speak.svg",
               width: 22.w,
+              colorFilter: route == AppRoute.speakup
+                  ? ColorFilter.mode(
+                      ColorConstants.primary[500]!,
+                      BlendMode.srcIn,
+                    )
+                  : null,
             ),
             SvgPicture.asset(
               "assets/icons/plus.svg",

@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
                   title: 'MyEco',
                   theme: globalTheme(),
                   getPages: appPage(),
-                  initialRoute: AppRoute.login,
+                  initialRoute: AppRoute.speakup,
                   // initialRoute: snapshot.data ?? false
                   //     ? AppRoute.profile
                   //     : AppRoute.profile,

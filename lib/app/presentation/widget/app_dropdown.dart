@@ -194,12 +194,13 @@ class _AppDropdownState<T> extends State<AppDropdown> {
                   children: [
                     AnimatedContainer(
                       duration: Duration(milliseconds: 250),
-                      height: 16.h,
+                      height: 20.h,
                       width: 1.w,
                       color: isFocused
                           ? ColorConstants.primary[500]
                           : ColorConstants.slate[500],
                     ),
+                    SizedBox(width: 6.w),
                     Icon(
                       Icons.keyboard_arrow_down,
                       size: 24.sp,

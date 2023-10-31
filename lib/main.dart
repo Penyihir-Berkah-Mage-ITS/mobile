@@ -43,9 +43,10 @@ class MyApp extends StatelessWidget {
                   title: 'MyEco',
                   theme: globalTheme(),
                   getPages: appPage(),
-                  initialRoute: snapshot.data ?? false
-                      ? AppRoute.profile
-                      : AppRoute.profile,
+                  initialRoute: AppRoute.login,
+                  // initialRoute: snapshot.data ?? false
+                  //     ? AppRoute.profile
+                  //     : AppRoute.profile,
                   builder: (context, child) {
                     return MediaQuery(
                       data: MediaQuery.of(context).copyWith(textScaleFactor: 1),

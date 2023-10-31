@@ -31,8 +31,8 @@ class LoginPage extends GetView<LoginController> {
                 SizedBox(height: 30.h),
                 AppInput(
                   controller: TextEditingController(),
-                  placeholder: 'Masukkan Alamat Email',
-                  label: "Alamat Email",
+                  placeholder: 'Masukkan Username',
+                  label: "Username",
                 ),
                 SizedBox(height: 16.h),
                 AppInput(

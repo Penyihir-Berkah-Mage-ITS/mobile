@@ -11,4 +11,5 @@ class AppRoute {
   static String profile = "/profile";
 
   static String home = "/home";
+  static String post(String id) => "/post/$id";
 }

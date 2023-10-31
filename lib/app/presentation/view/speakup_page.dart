@@ -4,6 +4,7 @@ import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class SpeakupPage extends StatelessWidget {
   const SpeakupPage({super.key});
@@ -104,46 +105,52 @@ class SpeakupPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 24.h),
-                      Container(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 20.w,
-                          vertical: 18.h,
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: ColorConstants.error,
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(AppRoute.report);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20.w,
+                            vertical: 18.h,
                           ),
-                          borderRadius: BorderRadius.circular(20.w),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.announcement_outlined,
+                          decoration: BoxDecoration(
+                            border: Border.all(
                               color: ColorConstants.error,
-                              size: 42.w,
                             ),
-                            SizedBox(width: 16.w),
-                            Flexible(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  Text(
-                                    'Telepon Darurat',
-                                    style: body3BTextStyle(
-                                      color: ColorConstants.error,
-                                    ),
-                                  ),
-                                  SizedBox(height: 4.h),
-                                  Text(
-                                    'Terhubung langsung dengan hotline perlindungan kekerasan seksual',
-                                    style: body5TextStyle(
-                                      color: ColorConstants.error,
-                                    ),
-                                  ),
-                                ],
+                            borderRadius: BorderRadius.circular(20.w),
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.announcement_outlined,
+                                color: ColorConstants.error,
+                                size: 42.w,
                               ),
-                            ),
-                          ],
+                              SizedBox(width: 16.w),
+                              Flexible(
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    Text(
+                                      'Laporkan Kejadian',
+                                      style: body3BTextStyle(
+                                        color: ColorConstants.error,
+                                      ),
+                                    ),
+                                    SizedBox(height: 4.h),
+                                    Text(
+                                      'Pelaporan langsung diproses oleh unit perlindungan kekerasan seksual',
+                                      style: body5TextStyle(
+                                        color: ColorConstants.error,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],

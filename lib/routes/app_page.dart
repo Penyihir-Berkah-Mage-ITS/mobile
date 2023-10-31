@@ -3,6 +3,7 @@ import 'package:asa/app/bindings/home_bindings.dart';
 import 'package:asa/app/bindings/login_binding.dart';
 import 'package:asa/app/bindings/onboarding_bindings.dart';
 import 'package:asa/app/bindings/register_binding.dart';
+import 'package:asa/app/bindings/report_binding.dart';
 import 'package:asa/app/presentation/view/comment_page.dart';
 import 'package:asa/app/presentation/view/home_page.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
@@ -12,6 +13,7 @@ import 'package:asa/app/presentation/view/register/register_avatar_page.dart';
 import 'package:asa/app/presentation/view/register/register_form_page.dart';
 import 'package:asa/app/presentation/view/register/register_gender_page.dart';
 import 'package:asa/app/presentation/view/register/register_name_page.dart';
+import 'package:asa/app/presentation/view/report_page.dart';
 import 'package:asa/app/presentation/view/speakup_page.dart';
 import 'package:asa/app/presentation/view/splash_page.dart';
 import 'package:asa/routes/app_route.dart';
@@ -74,6 +76,12 @@ List<GetPage<String>> appPage() {
     GetPage(
       name: AppRoute.speakup,
       page: () => SpeakupPage(),
+    ),
+    GetPage(
+      name: AppRoute.report,
+      page: () => ReportPage(),
+      transition: Transition.rightToLeft,
+      binding: ReportBinding(),
     ),
   ];
 }

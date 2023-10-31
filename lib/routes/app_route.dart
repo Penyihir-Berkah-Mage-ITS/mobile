@@ -14,4 +14,5 @@ class AppRoute {
   static String post(String id) => "/post/$id";
 
   static String speakup = "/speak-up";
+  static String report = "/speak-up/report";
 }

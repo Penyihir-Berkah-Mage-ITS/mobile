@@ -128,7 +128,7 @@ class _AppInputState extends State<AppInput> {
                     widget.label!,
                     style: h5BTextStyle(),
                   ),
-            widget.label == null ? Container() : SizedBox(height: 4.h),
+            widget.label == null ? Container() : SizedBox(height: 6.h),
             AnimatedContainer(
               duration: Duration(milliseconds: 250),
               curve: Curves.easeIn,
@@ -269,20 +269,13 @@ class _AppInputState extends State<AppInput> {
       filled: true,
       isDense: true,
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(8.w),
         borderSide: BorderSide.none,
       ),
       hintText: widget.placeholder,
-      // hintText: widget.label == null
-      //     ? widget.placeholder
-      //     : (isFocused ? widget.placeholder : null),
-      contentPadding: EdgeInsets.only(
-        left: 16.w,
-        right: 16.w,
-        top: 13.h,
-        bottom: 13.h,
-        // top: (isFocused || !isEmpty) && widget.label != null ? 24.h : 13.h,
-        // bottom: (isFocused || !isEmpty) && widget.label != null ? 10.h : 13.h,
+      contentPadding: EdgeInsets.symmetric(
+        vertical: 12.h,
+        horizontal: 16.w,
       ),
       isCollapsed: true,
     );

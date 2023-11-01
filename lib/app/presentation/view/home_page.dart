@@ -4,6 +4,7 @@ import 'package:asa/app/presentation/partials/home/home_header.dart';
 import 'package:asa/app/presentation/widget/app_bottombar.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -22,7 +23,8 @@ class HomePage extends GetView<HomeController> {
           SliverPersistentHeader(
             pinned: true,
             delegate: HomeHeader(),
-          )
+          ),
+          // CupertinoSliverRefreshControl(onRefresh: controller.onRefresh),
         ],
         body: ConstrainedBox(
           constraints: BoxConstraints(minHeight: 1.sh),
@@ -55,41 +57,57 @@ class HomePage extends GetView<HomeController> {
               controller.current.value = e;
             },
             children: [
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                controller: controller.p1Controller,
-                child: Column(
-                  children: [
-                    SizedBox(height: 8.h),
-                    CardPost(),
-                  ],
+              RefreshIndicator(
+                onRefresh: () async {
+                  print('asd');
+                },
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  controller: controller.p1Controller,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 8.h),
+                      CardPost(),
+                    ],
+                  ),
                 ),
               ),
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                controller: controller.p2Controller,
-                child: Column(
-                  children: [
-                    SizedBox(height: 8.h),
-                    CardPost(),
-                    CardPost(),
-                    CardPost(),
-                    CardPost(),
-                    CardPost(),
-                    CardPost(),
-                  ],
+              RefreshIndicator(
+                onRefresh: () async {
+                  print('asd');
+                },
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  controller: controller.p2Controller,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 8.h),
+                      CardPost(),
+                      CardPost(),
+                      CardPost(),
+                      CardPost(),
+                      CardPost(),
+                      CardPost(),
+                    ],
+                  ),
                 ),
               ),
-              SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                controller: controller.p3Controller,
-                child: Column(
-                  children: [
-                    SizedBox(height: 8.h),
-                    CardPost(),
-                    CardPost(),
-                    CardPost(),
-                  ],
+              RefreshIndicator(
+                onRefresh: () async {
+                  print('asd');
+                },
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  controller: controller.p3Controller,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 8.h),
+                      CardPost(),
+                      CardPost(),
+                      CardPost(),
+                      CardPost(),
+                    ],
+                  ),
                 ),
               ),
             ],

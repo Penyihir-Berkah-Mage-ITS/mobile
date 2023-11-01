@@ -18,6 +18,9 @@ class AppButton extends StatelessWidget {
   final void Function()? onPressed;
   final String text;
   final AppButtonVariant variant;
+  final EdgeInsets? padding;
+  final BorderRadiusGeometry? borderRadius;
+  final TextStyle? textStyle;
 
   const AppButton({
     super.key,
@@ -25,6 +28,9 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     required this.text,
     this.variant = AppButtonVariant.primary,
+    this.padding,
+    this.borderRadius,
+    this.textStyle,
   });
 
   @override
@@ -36,16 +42,17 @@ class AppButton extends StatelessWidget {
             color: ColorConstants.primary[500]!,
             width: 1.5.w,
           ),
-          borderRadius: BorderRadius.circular(30.w),
+          borderRadius: borderRadius ?? BorderRadius.circular(30.w),
         ),
         child: OutlinedButton(
           onPressed: onPressed,
           style: OutlinedButton.styleFrom(
             backgroundColor: Colors.transparent,
-            padding: EdgeInsets.symmetric(
-              vertical: 13.h,
-              horizontal: 24,
-            ),
+            padding: padding ??
+                EdgeInsets.symmetric(
+                  vertical: 13.h,
+                  horizontal: 24,
+                ),
             // foregroundColor: variant == AppButtonVariant.primary
             //     ? ColorConstants.green[60]!
             //     : ColorConstants.negative[50]!,
@@ -55,9 +62,10 @@ class AppButton extends StatelessWidget {
           ),
           child: Text(
             text,
-            style: h4BTextStyle(
-              color: ColorConstants.primary[500],
-            ),
+            style: textStyle ??
+                h4BTextStyle(
+                  color: ColorConstants.primary[500],
+                ),
           ),
         ),
       );
@@ -71,24 +79,25 @@ class AppButton extends StatelessWidget {
             : variant == AppButtonVariant.primary
                 ? ColorConstants.primary[500]
                 : ColorConstants.error,
-        borderRadius: BorderRadius.circular(30.w),
+        borderRadius: borderRadius ?? BorderRadius.circular(30.w),
       ),
       clipBehavior: Clip.hardEdge,
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
-          padding: EdgeInsets.symmetric(
-            vertical: 13.h,
-            horizontal: 24,
-          ),
+          padding: padding ??
+              EdgeInsets.symmetric(
+                vertical: 13.h,
+                horizontal: 24,
+              ),
           shadowColor: Colors.transparent,
           elevation: 0,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
           text,
-          style: h4BTextStyle(color: Colors.white),
+          style: textStyle ?? h4BTextStyle(color: Colors.white),
         ),
       ),
     );

@@ -1,12 +1,14 @@
 import 'package:asa/app/bindings/comment_bindings.dart';
 import 'package:asa/app/bindings/home_bindings.dart';
 import 'package:asa/app/bindings/login_binding.dart';
+import 'package:asa/app/bindings/newpost_binding.dart';
 import 'package:asa/app/bindings/onboarding_bindings.dart';
 import 'package:asa/app/bindings/register_binding.dart';
 import 'package:asa/app/bindings/report_binding.dart';
 import 'package:asa/app/presentation/view/comment_page.dart';
 import 'package:asa/app/presentation/view/home_page.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
+import 'package:asa/app/presentation/view/newpost_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
 import 'package:asa/app/presentation/view/profile/profile_page.dart';
 import 'package:asa/app/presentation/view/register/register_avatar_page.dart';
@@ -82,6 +84,11 @@ List<GetPage<String>> appPage() {
       page: () => ReportPage(),
       transition: Transition.rightToLeft,
       binding: ReportBinding(),
+    ),
+    GetPage(
+      name: AppRoute.newPost,
+      page: () => NewPostPage(),
+      binding: NewPostBinding(),
     ),
   ];
 }

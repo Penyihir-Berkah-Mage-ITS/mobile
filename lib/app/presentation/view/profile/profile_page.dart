@@ -7,8 +7,11 @@ import 'package:asa/app/presentation/partials/profile/profile_header.dart';
 import 'package:asa/app/presentation/widget/app_bottombar.dart';
 import 'package:asa/app/presentation/widget/app_button.dart';
 import 'package:asa/routes/app_route.dart';
+import 'package:asa/services/token/app_token.dart';
+import 'package:asa/utils/show_alert.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -48,7 +51,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     SizedBox(height: 16.h),
                     AppButton(
                       variant: AppButtonVariant.secondary,
-                      onPressed: () {},
+                      onPressed: () async {
+                        await UserToken.clearToken();
+                        Get.offAllNamed(AppRoute.splash);
+                        showAlert("Logout sukses", isSuccess: true);
+                      },
                       text: "Keluar",
                     ),
                     SizedBox(height: 40.h),

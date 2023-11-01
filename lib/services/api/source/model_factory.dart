@@ -1,4 +1,5 @@
 import 'package:asa/app/models/login/login_model.dart';
+import 'package:asa/app/models/post/post_model.dart';
 import 'package:asa/app/models/user/user_model.dart';
 
 abstract class ModelFactory {
@@ -9,6 +10,8 @@ abstract class ModelFactory {
       return UserModel.fromJson(json);
     } else if (strType == (LoginModel).toString()) {
       return LoginModel.fromJson(json);
+    } else if (strType == (PostModel).toString()) {
+      return PostModel.fromJson(json);
     }
 
     throw UnimplementedError();

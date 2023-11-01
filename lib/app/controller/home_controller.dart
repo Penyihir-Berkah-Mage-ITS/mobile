@@ -22,4 +22,8 @@ class HomeController extends GetxController {
     super.onInit();
     CacheController.i.getUserData();
   }
+
+  Future onRefresh() async {
+    print('asd');
+  }
 }

@@ -15,4 +15,6 @@ class AppRoute {
 
   static String speakup = "/speak-up";
   static String report = "/speak-up/report";
+
+  static String newPost = "/new-post";
 }

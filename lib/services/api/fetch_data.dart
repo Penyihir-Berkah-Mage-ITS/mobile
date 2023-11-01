@@ -42,7 +42,7 @@ Future<ApiResponse<T>> fetchData<T>({
 
       if (isAlert!) {
         if (response?.data is Map) {
-          String message = response?.data['message'] ?? '';
+          String message = response?.data['error'] ?? '';
           if (message.toLowerCase().contains("token")) {
             logoutHandler();
           } else {
@@ -53,7 +53,7 @@ Future<ApiResponse<T>> fetchData<T>({
         }
       }
       throw ApiException(
-        response?.data?['message'] ??
+        response?.data?['error'] ??
             response?.statusMessage ??
             e.message ??
             e.toString(),
@@ -99,7 +99,7 @@ Future<ApiResponses<T>> fetchMultipleData<T>({
 
       if (isAlert!) {
         if (response?.data is Map) {
-          String message = response?.data['message'] ?? '';
+          String message = response?.data['error'] ?? '';
           if (message.toLowerCase().contains("token")) {
             logoutHandler();
           } else {

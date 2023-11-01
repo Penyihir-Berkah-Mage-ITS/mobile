@@ -32,6 +32,7 @@ class RegisterFormPage extends GetView<RegisterController> {
                     ),
                     SizedBox(height: 30.h),
                     AppInput(
+                      textInputAction: TextInputAction.next,
                       controller: controller.form['username']!,
                       label: "Nama",
                       placeholder: "Contoh: John Doe",
@@ -44,6 +45,7 @@ class RegisterFormPage extends GetView<RegisterController> {
                     ),
                     SizedBox(height: 12.h),
                     AppInput(
+                      textInputAction: TextInputAction.next,
                       controller: controller.form['email']!,
                       label: "Alamat Email",
                       placeholder: "Masukkan Alamat Email",
@@ -59,6 +61,23 @@ class RegisterFormPage extends GetView<RegisterController> {
                     ),
                     SizedBox(height: 12.h),
                     AppInput(
+                      textInputAction: TextInputAction.next,
+                      controller: controller.form['phone']!,
+                      label: "Nomor Telepon",
+                      placeholder: "Masukkan Nomor Telepon",
+                      keyboardType: TextInputType.number,
+                      validator: (e) {
+                        if (e!.isEmpty) {
+                          return "Nomor telepon tidak boleh kosong";
+                        }
+                        if (!e.isPhoneNumber) {
+                          return "Nomor telepon tidak valid";
+                        }
+                        return null;
+                      },
+                    ),
+                    AppInput(
+                      textInputAction: TextInputAction.next,
                       controller: controller.form['password']!,
                       label: "Password",
                       prefixIcon: Icon(Icons.password),
@@ -82,7 +101,8 @@ class RegisterFormPage extends GetView<RegisterController> {
                     ),
                     SizedBox(height: 12.h),
                     AppInput(
-                      controller: TextEditingController(),
+                      textInputAction: TextInputAction.done,
+                      controller: controller.confirmPassword,
                       label: "Konfirmasi Password",
                       obscureText: true,
                       placeholder: "Ulangi password anda",

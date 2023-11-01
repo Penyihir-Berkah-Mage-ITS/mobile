@@ -34,6 +34,7 @@ class LoginPage extends GetView<LoginController> {
                   AppInput(
                     controller: controller.form['username']!,
                     placeholder: 'Masukkan Username',
+                    textInputAction: TextInputAction.next,
                     label: "Username",
                     validator: (e) {
                       if (e!.isEmpty) {
@@ -46,6 +47,7 @@ class LoginPage extends GetView<LoginController> {
                   AppInput(
                     controller: controller.form['password']!,
                     placeholder: 'Masukkan Password',
+                    textInputAction: TextInputAction.done,
                     label: "Password",
                     obscureText: true,
                     validator: (e) {

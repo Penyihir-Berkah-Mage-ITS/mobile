@@ -102,6 +102,7 @@ List<GetPage<String>> appPage() {
       name: AppRoute.chatRoom(":id"),
       page: () => ChatPage(),
       binding: ChatBinding(),
+      transition: Transition.rightToLeft,
     ),
   ];
 }

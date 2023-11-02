@@ -19,20 +19,26 @@ class CardChat extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         child: Row(
           children: [
-            SvgPicture.asset(
-              "assets/images/avatar_1.svg",
-              width: 60.w,
-              height: 60.h,
-              fit: BoxFit.cover,
+            Hero(
+              tag: "chat_avatar",
+              child: SvgPicture.asset(
+                "assets/images/avatar_1.svg",
+                width: 60.w,
+                height: 60.h,
+                fit: BoxFit.cover,
+              ),
             ),
             SizedBox(width: 16.w),
             Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    "Bram",
-                    style: body4BTextStyle(color: ColorConstants.slate[800]),
+                  Hero(
+                    tag: "chat_name",
+                    child: Text(
+                      "Bram",
+                      style: body4BTextStyle(color: ColorConstants.slate[800]),
+                    ),
                   ),
                   Text(
                     'Ada yang bisa kubantu? Mungkin sedi...',

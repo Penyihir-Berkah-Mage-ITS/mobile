@@ -20,6 +20,7 @@ class AppInput extends StatefulWidget {
   final TextInputAction? textInputAction;
   final Widget? suffixIcon;
   final AutovalidateMode? autovalidateMode;
+  final EdgeInsets? padding;
 
   const AppInput({
     super.key,
@@ -39,6 +40,7 @@ class AppInput extends StatefulWidget {
     this.textInputAction,
     this.readOnly = false,
     this.autovalidateMode,
+    this.padding,
   });
 
   @override
@@ -148,6 +150,9 @@ class _AppInputState extends State<AppInput> {
                         isEmpty = e.isEmpty ? true : false;
                       });
                     },
+                    textAlignVertical: widget.prefixIcon != null
+                        ? TextAlignVertical.center
+                        : TextAlignVertical.top,
                     textInputAction: widget.textInputAction,
                     obscureText: isVisible,
                     keyboardType: widget.keyboardType,
@@ -247,6 +252,7 @@ class _AppInputState extends State<AppInput> {
 
   InputDecoration _renderInputDecoration(FormFieldState<String> state) {
     return InputDecoration(
+      prefixIcon: widget.prefixIcon,
       hintStyle: body4TextStyle(
         weight: state.errorText != null ? FontWeight.w500 : FontWeight.normal,
         color: state.errorText != null
@@ -273,10 +279,11 @@ class _AppInputState extends State<AppInput> {
         borderSide: BorderSide.none,
       ),
       hintText: widget.placeholder,
-      contentPadding: EdgeInsets.symmetric(
-        vertical: 12.h,
-        horizontal: 16.w,
-      ),
+      contentPadding: widget.padding ??
+          EdgeInsets.symmetric(
+            vertical: 12.h,
+            horizontal: 16.w,
+          ),
       isCollapsed: true,
     );
   }

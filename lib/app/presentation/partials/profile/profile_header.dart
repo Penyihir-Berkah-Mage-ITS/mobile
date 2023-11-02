@@ -3,7 +3,6 @@ import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProfileHeader extends StatelessWidget {
   CacheController controller = CacheController.i;
@@ -24,11 +23,14 @@ class ProfileHeader extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 33.h),
       child: Row(
         children: [
-          SvgPicture.asset(
-            "assets/images/avatar_7.svg",
-            width: 80.w,
-            height: 80.w,
-          ),
+          data?.profilePicture != null
+              ? Image.network(
+                  data!.profilePicture,
+                  width: 88.w,
+                  height: 88.h,
+                  fit: BoxFit.cover,
+                )
+              : Container(),
           SizedBox(width: 12.w),
           Flexible(
             child: Column(

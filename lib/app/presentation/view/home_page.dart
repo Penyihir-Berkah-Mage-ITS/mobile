@@ -24,7 +24,6 @@ class HomePage extends GetView<HomeController> {
             pinned: true,
             delegate: HomeHeader(),
           ),
-          // CupertinoSliverRefreshControl(onRefresh: controller.onRefresh),
         ],
         body: ConstrainedBox(
           constraints: BoxConstraints(minHeight: 1.sh),

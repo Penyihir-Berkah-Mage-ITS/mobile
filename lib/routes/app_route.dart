@@ -17,4 +17,6 @@ class AppRoute {
   static String report = "/speak-up/report";
 
   static String newPost = "/new-post";
+  static String chat = "/chat";
+  static String chatRoom(String id) => "/chat/$id";
 }

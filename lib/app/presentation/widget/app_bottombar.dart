@@ -72,10 +72,18 @@ class AppBottomBar extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed(AppRoute.chat);
+              },
               child: SvgPicture.asset(
                 "assets/icons/chat.svg",
                 width: 24.w,
+                colorFilter: route == AppRoute.chat
+                    ? ColorFilter.mode(
+                        ColorConstants.primary[500]!,
+                        BlendMode.srcIn,
+                      )
+                    : null,
               ),
             ),
             GestureDetector(

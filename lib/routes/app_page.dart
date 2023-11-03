@@ -117,7 +117,7 @@ List<GetPage<String>> appPage() {
     GetPage(
       name: AppRoute.imageDetail,
       page: () => ImagePage(),
-      transition: Transition.cupertino,
+      transition: Transition.downToUp,
     ),
   ];
 }

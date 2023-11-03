@@ -33,10 +33,11 @@ class CommentRepository {
 
   static Future<CommentModel> like(
     String id,
+    String postId,
   ) async {
     try {
       var request = await fetchData<CommentModel>(
-        url: "/api/v1/post/qwe/$id/like",
+        url: "/api/v1/post/$postId/$id/like",
         method: RequestMethod.POST,
       );
 
@@ -48,10 +49,11 @@ class CommentRepository {
 
   static Future<CommentModel> unlike(
     String id,
+    String postId,
   ) async {
     try {
       var request = await fetchData<CommentModel>(
-        url: "/api/v1/post/qwe/$id/unlike",
+        url: "/api/v1/post/$postId/$id/unlike",
         method: RequestMethod.DELETE,
       );
 

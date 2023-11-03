@@ -47,8 +47,8 @@ class CommentController extends GetxController {
     debouncer.run(() async {
       try {
         data.isLiked!
-            ? await CommentRepository.unlike(data.id)
-            : await CommentRepository.like(data.id);
+            ? await CommentRepository.unlike(data.id, Get.parameters['id']!)
+            : await CommentRepository.like(data.id, Get.parameters['id']!);
 
         // updateData(post, !data.is_liked!);
         showInfo('Post ${!data.isLiked! ? "liked" : "unliked"}');

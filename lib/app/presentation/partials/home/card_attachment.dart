@@ -17,6 +17,7 @@ class CardAttachment extends StatefulWidget {
 
 class _CardAttachmentState extends State<CardAttachment> {
   VideoPlayerController? videoController;
+
   @override
   void initState() {
     super.initState();
@@ -29,14 +30,14 @@ class _CardAttachmentState extends State<CardAttachment> {
     }
 
     videoController =
-        VideoPlayerController.networkUrl(Uri.parse(widget.data.attachment))
-          ..initialize().then((_) {
-            // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-          });
+        VideoPlayerController.networkUrl(Uri.parse(widget.data.attachment));
+
+    videoController!.initialize().then((value) {});
   }
 
   @override
   Widget build(BuildContext context) {
+    double aspectRatio = videoController?.value.aspectRatio ?? 1.0;
     return Column(
       children: [
         widget.data.attachment.isEmpty ? Container() : SizedBox(height: 15.h),
@@ -72,7 +73,7 @@ class _CardAttachmentState extends State<CardAttachment> {
                     child: SizedBox(
                       width: 1.sw,
                       child: AspectRatio(
-                        aspectRatio: videoController!.value.aspectRatio,
+                        aspectRatio: aspectRatio,
                         child: VideoPlayer(videoController!),
                       ),
                     ),

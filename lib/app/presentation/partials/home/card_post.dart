@@ -126,7 +126,7 @@ class CardPost extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  "149 comments",
+                                  "${data.totalComment} comments",
                                   style: body5TextStyle(
                                       color: ColorConstants.slate[500]),
                                 ),
@@ -150,7 +150,7 @@ class CardPost extends StatelessWidget {
                                 children: [
                                   Icon(
                                     Icons.thumb_up_outlined,
-                                    color: data.is_liked!
+                                    color: data.is_liked
                                         ? ColorConstants.primary[500]
                                         : ColorConstants.slate[400],
                                     size: 14.w,
@@ -159,11 +159,11 @@ class CardPost extends StatelessWidget {
                                   Text(
                                     "Like",
                                     style: body4TextStyle(
-                                      weight: data.is_liked!
+                                      weight: data.is_liked
                                           ? FontWeight.w600
                                           : null,
                                       height: 1,
-                                      color: data.is_liked!
+                                      color: data.is_liked
                                           ? ColorConstants.primary[500]
                                           : ColorConstants.slate[500],
                                     ),

@@ -37,7 +37,15 @@ class HomeController extends GetxController {
   }
 
   Future onRefresh() async {
-    print('asd');
+    if (current.value == 0) {
+      getTrending();
+    }
+    if (current.value == 1) {
+      getNearest();
+    }
+    if (current.value == 2) {
+      getLatest();
+    }
   }
 
   Future getTrending() async {
@@ -64,29 +72,20 @@ class HomeController extends GetxController {
   void updateData(PostModel data, bool isLiked) {
     trending.value = trending.map((element) {
       if (element.id == data.id) {
-        return element.copyWith(
-          likes: data.likes,
-          is_liked: isLiked,
-        );
+        return data;
       }
       return element;
     }).toList();
     nearest.value = nearest.map((element) {
       if (element.id == data.id) {
-        return element.copyWith(
-          likes: data.likes,
-          is_liked: isLiked,
-        );
+        return data;
       }
 
       return element;
     }).toList();
     latest.value = latest.map((element) {
       if (element.id == data.id) {
-        return element.copyWith(
-          likes: data.likes,
-          is_liked: isLiked,
-        );
+        return data;
       }
       return element;
     }).toList();
@@ -96,12 +95,12 @@ class HomeController extends GetxController {
     var debouncer = Debouncer(duration: Duration(milliseconds: 500));
     debouncer.run(() async {
       try {
-        var post = data.is_liked!
+        var post = data.is_liked
             ? await PostRepository.unlike(data.id)
             : await PostRepository.like(data.id);
 
-        updateData(post, !data.is_liked!);
-        showInfo('Post ${!data.is_liked! ? "liked" : "unliked"}');
+        updateData(post, !data.is_liked);
+        showInfo('Post ${!data.is_liked ? "liked" : "unliked"}');
       } catch (_) {}
     });
   }

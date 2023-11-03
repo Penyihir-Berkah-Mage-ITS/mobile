@@ -4,7 +4,6 @@ import 'package:asa/app/presentation/partials/home/home_header.dart';
 import 'package:asa/app/presentation/widget/app_bottombar.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -58,9 +57,7 @@ class HomePage extends GetView<HomeController> {
             children: [
               // Trending
               RefreshIndicator(
-                onRefresh: () async {
-                  print('asd');
-                },
+                onRefresh: controller.onRefresh,
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   controller: controller.p1Controller,
@@ -82,9 +79,7 @@ class HomePage extends GetView<HomeController> {
               ),
               // Nearest
               RefreshIndicator(
-                onRefresh: () async {
-                  print('asd');
-                },
+                onRefresh: controller.onRefresh,
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   controller: controller.p2Controller,
@@ -106,9 +101,7 @@ class HomePage extends GetView<HomeController> {
               ),
               // Latest
               RefreshIndicator(
-                onRefresh: () async {
-                  print('asd');
-                },
+                onRefresh: () async {},
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   controller: controller.p3Controller,

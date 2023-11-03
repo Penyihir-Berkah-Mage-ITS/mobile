@@ -16,9 +16,12 @@ class PostModel implements ModelFactory {
   String content;
   String attachment;
   int likes;
-  bool? is_liked;
+  bool is_liked;
   String CreatedAt;
   String UpdatedAt;
+
+  @JsonKey(name: "total_comment")
+  int totalComment;
 
   PostModel({
     required this.CreatedAt,
@@ -29,7 +32,8 @@ class PostModel implements ModelFactory {
     required this.id,
     required this.likes,
     required this.userId,
-    this.is_liked,
+    required this.is_liked,
+    required this.totalComment,
   });
 
   factory PostModel.fromJson(Map<String, dynamic> json) =>
@@ -46,6 +50,7 @@ class PostModel implements ModelFactory {
     int? likes,
     String? userId,
     bool? is_liked,
+    int? totalComment,
   }) =>
       PostModel(
         CreatedAt: CreatedAt ?? this.CreatedAt,
@@ -57,5 +62,6 @@ class PostModel implements ModelFactory {
         likes: likes ?? this.likes,
         userId: userId ?? this.userId,
         is_liked: is_liked ?? this.is_liked,
+        totalComment: totalComment ?? this.totalComment,
       );
 }

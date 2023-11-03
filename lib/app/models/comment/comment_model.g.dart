@@ -28,7 +28,7 @@ Map<String, dynamic> _$CommentModelToJson(CommentModel instance) =>
       'post_id': instance.postId,
       'content': instance.content,
       'like': instance.like,
-      'is_liked': instance.isLiked,
       'CreatedAt': instance.CreatedAt,
       'UpdatedAt': instance.UpdatedAt,
+      'is_liked': instance.isLiked,
     };

@@ -15,7 +15,8 @@ PostModel _$PostModelFromJson(Map<String, dynamic> json) => PostModel(
       id: json['id'] as String,
       likes: json['likes'] as int,
       userId: json['user_id'] as String,
-      is_liked: json['is_liked'] as bool?,
+      is_liked: json['is_liked'] as bool,
+      totalComment: json['total_comment'] as int,
     );
 
 Map<String, dynamic> _$PostModelToJson(PostModel instance) => <String, dynamic>{
@@ -28,4 +29,5 @@ Map<String, dynamic> _$PostModelToJson(PostModel instance) => <String, dynamic>{
       'is_liked': instance.is_liked,
       'CreatedAt': instance.CreatedAt,
       'UpdatedAt': instance.UpdatedAt,
+      'total_comment': instance.totalComment,
     };

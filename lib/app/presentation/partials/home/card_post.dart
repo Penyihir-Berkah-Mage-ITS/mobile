@@ -1,3 +1,4 @@
+import 'package:asa/app/controller/home_controller.dart';
 import 'package:asa/app/models/post/post_model.dart';
 import 'package:asa/app/presentation/widget/text_more.dart';
 import 'package:asa/routes/app_route.dart';
@@ -7,10 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CardPost extends StatelessWidget {
   final PostModel data;
-  const CardPost({
+  HomeController controller = HomeController.i;
+  CardPost({
     super.key,
     required this.data,
   });
@@ -22,7 +25,7 @@ class CardPost extends StatelessWidget {
         SizedBox(height: 2.5.h),
         InkWell(
           onTap: () {
-            Get.toNamed(AppRoute.post(1.toString()));
+            Get.toNamed(AppRoute.post(data.id.toString()));
           },
           child: Ink(
             decoration: BoxDecoration(
@@ -84,11 +87,29 @@ class CardPost extends StatelessWidget {
                     SizedBox(
                       height: 15.h,
                     ),
-                    Image.asset(
-                      "assets/images/post_dummy.png",
-                      width: 1.sw,
-                      fit: BoxFit.cover,
-                    ),
+                    Builder(builder: (context) {
+                      var link = data.attachment;
+                      if (link.contains("tccmlkbaplvfccxxptsv")) {
+                        return Container();
+                      }
+
+                      var extens = link.split(".").last;
+                      if (extens == "jpeg" ||
+                          extens == "png" ||
+                          extens == "jpg" ||
+                          extens == "svg") {
+                        return CachedNetworkImage(
+                          imageUrl: link,
+                          width: 1.sw,
+                          placeholder: (context, url) => Center(
+                            child: CircularProgressIndicator(),
+                          ),
+                          fit: BoxFit.cover,
+                        );
+                      }
+
+                      return Container();
+                    }),
                   ],
                 ),
                 Container(
@@ -110,7 +131,7 @@ class CardPost extends StatelessWidget {
                                 ),
                                 SizedBox(width: 10.w),
                                 Text(
-                                  "300",
+                                  data.likes.toString(),
                                   style: body5TextStyle(
                                       color: ColorConstants.slate[500]),
                                 ),
@@ -135,21 +156,34 @@ class CardPost extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.thumb_up_outlined,
-                                  color: ColorConstants.slate[400],
-                                  size: 14.w,
-                                ),
-                                SizedBox(width: 4.w),
-                                Text(
-                                  "Like",
-                                  style: body4TextStyle(
+                            InkWell(
+                              onTap: () {
+                                controller.like(data);
+                              },
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.thumb_up_outlined,
+                                    color: data.is_liked!
+                                        ? ColorConstants.primary[500]
+                                        : ColorConstants.slate[400],
+                                    size: 14.w,
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Text(
+                                    "Like",
+                                    style: body4TextStyle(
+                                      weight: data.is_liked!
+                                          ? FontWeight.w600
+                                          : null,
                                       height: 1,
-                                      color: ColorConstants.slate[500]),
-                                ),
-                              ],
+                                      color: data.is_liked!
+                                          ? ColorConstants.primary[500]
+                                          : ColorConstants.slate[500],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Row(
                               children: [

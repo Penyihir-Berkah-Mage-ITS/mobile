@@ -12,7 +12,7 @@ Future<ApiResponse<T>> fetchData<T>({
   required String url,
   required RequestMethod method,
   Object? data,
-  bool? isAlert = false,
+  bool? isAlert = true,
   Map<String, String>? header,
   Map<String, dynamic>? queryParameters,
   String? baseUrl,
@@ -71,7 +71,7 @@ Future<ApiResponses<T>> fetchMultipleData<T>({
   required String url,
   required RequestMethod method,
   Object? data,
-  bool? isAlert = false,
+  bool? isAlert = true,
   Map<String, dynamic>? queryParameters,
   String? baseUrl,
 }) async {

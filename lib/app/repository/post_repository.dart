@@ -73,12 +73,26 @@ class PostRepository {
     }
   }
 
-  Future<PostModel> like(String id, FormData data) async {
+  static Future<PostModel> like(String id) async {
     try {
       var request = await fetchData<PostModel>(
         url: "/api/v1/post/$id/like",
         method: RequestMethod.POST,
-        data: data,
+        isAlert: true,
+      );
+
+      return request.data!;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  static Future<PostModel> unlike(String id) async {
+    try {
+      var request = await fetchData<PostModel>(
+        url: "/api/v1/post/$id/unlike",
+        method: RequestMethod.DELETE,
+        isAlert: true,
       );
 
       return request.data!;

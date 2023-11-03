@@ -1,3 +1,4 @@
+import 'package:asa/app/models/comment/comment_model.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CardComment extends StatelessWidget {
-  const CardComment({super.key});
+  final CommentModel data;
+  const CardComment({
+    super.key,
+    required this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
+    print(data.user);
     return GestureDetector(
       onDoubleTap: () {
         // ADD LIKE
@@ -33,7 +39,7 @@ class CardComment extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "skyfallin1",
+                        data.user.username,
                         style: body5BTextStyle(
                           color: ColorConstants.slate[800],
                         ),
@@ -48,7 +54,7 @@ class CardComment extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    'harusnya seorang petinggi perusahaan tidak bersikap seperti demiki perusahaan tidak bersikap seperti demikiperusahaan tidakp seperti demikian',
+                    data.content,
                     style: body5TextStyle(
                       color: ColorConstants.slate[800],
                     ),

@@ -1,31 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post_model.dart';
+part of 'comment_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-PostModel _$PostModelFromJson(Map<String, dynamic> json) => PostModel(
+CommentModel _$CommentModelFromJson(Map<String, dynamic> json) => CommentModel(
       CreatedAt: json['CreatedAt'] as String,
       UpdatedAt: json['UpdatedAt'] as String,
-      User: UserModel.fromJson(json['User'] as Map<String, dynamic>),
-      attachment: json['attachment'] as String,
       content: json['content'] as String,
       id: json['id'] as String,
-      likes: json['likes'] as int,
+      like: json['like'] as int,
+      post: PostModel.fromJson(json['Post'] as Map<String, dynamic>),
+      postId: json['post_id'] as String,
+      user: UserModel.fromJson(json['User'] as Map<String, dynamic>),
       userId: json['user_id'] as String,
-      is_liked: json['is_liked'] as bool?,
     );
 
-Map<String, dynamic> _$PostModelToJson(PostModel instance) => <String, dynamic>{
+Map<String, dynamic> _$CommentModelToJson(CommentModel instance) =>
+    <String, dynamic>{
       'id': instance.id,
-      'User': instance.User,
+      'User': instance.user,
       'user_id': instance.userId,
+      'Post': instance.post,
+      'post_id': instance.postId,
       'content': instance.content,
-      'attachment': instance.attachment,
-      'likes': instance.likes,
-      'is_liked': instance.is_liked,
+      'like': instance.like,
       'CreatedAt': instance.CreatedAt,
       'UpdatedAt': instance.UpdatedAt,
     };

@@ -21,17 +21,13 @@ class CommentPage extends GetView<CommentController> {
           Expanded(
             child: SingleChildScrollView(
               physics: BouncingScrollPhysics(),
-              child: Wrap(
-                runSpacing: 15.h,
-                children: [
-                  CardComment(),
-                  CardComment(),
-                  CardComment(),
-                  CardComment(),
-                  CardComment(),
-                  CardComment(),
-                  CardComment(),
-                ],
+              child: Obx(
+                () => Wrap(
+                  runSpacing: 15.h,
+                  children: controller.comments
+                      .map((element) => CardComment(data: element))
+                      .toList(),
+                ),
               ),
             ),
           ),
@@ -47,24 +43,33 @@ class CommentPage extends GetView<CommentController> {
               children: [
                 Flexible(
                   child: AppInput(
-                    controller: TextEditingController(),
+                    controller: controller.commentInput,
+                    onChange: (e) {
+                      controller.commentText.value = e;
+                    },
                     placeholder: "Tambahkan Komentar Anda",
                   ),
                 ),
                 SizedBox(width: 12.w),
-                InkWell(
-                  borderRadius: BorderRadius.circular(6.w),
-                  onTap: () {},
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6.w),
-                      color: ColorConstants.primary[500],
-                    ),
-                    width: 44.w,
-                    height: 50.h,
-                    child: Center(
-                      child: SvgPicture.asset(
-                        "assets/icons/send.svg",
+                Obx(
+                  () => InkWell(
+                    borderRadius: BorderRadius.circular(6.w),
+                    onTap: controller.commentText.value.isEmpty
+                        ? null
+                        : controller.addComment,
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6.w),
+                        color: controller.commentText.value.isEmpty
+                            ? ColorConstants.slate[600]
+                            : ColorConstants.primary[500],
+                      ),
+                      width: 44.w,
+                      height: 50.h,
+                      child: Center(
+                        child: SvgPicture.asset(
+                          "assets/icons/send.svg",
+                        ),
                       ),
                     ),
                   ),

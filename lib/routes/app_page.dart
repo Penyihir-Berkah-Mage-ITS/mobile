@@ -77,6 +77,7 @@ List<GetPage<String>> appPage() {
       name: AppRoute.post(":id"),
       page: () => CommentPage(),
       binding: CommentBinding(),
+      transition: Transition.leftToRight,
     ),
     GetPage(
       name: AppRoute.speakup,

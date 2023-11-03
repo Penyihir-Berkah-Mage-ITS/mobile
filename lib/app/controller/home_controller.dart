@@ -64,19 +64,29 @@ class HomeController extends GetxController {
   void updateData(PostModel data, bool isLiked) {
     trending.value = trending.map((element) {
       if (element.id == data.id) {
-        return data.copyWith(is_liked: isLiked);
+        return element.copyWith(
+          likes: element.likes,
+          is_liked: isLiked,
+        );
       }
       return element;
     }).toList();
     nearest.value = nearest.map((element) {
       if (element.id == data.id) {
-        return data.copyWith(is_liked: isLiked);
+        return element.copyWith(
+          likes: element.likes,
+          is_liked: isLiked,
+        );
       }
+
       return element;
     }).toList();
     latest.value = latest.map((element) {
       if (element.id == data.id) {
-        return data.copyWith(is_liked: isLiked);
+        return element.copyWith(
+          likes: element.likes,
+          is_liked: isLiked,
+        );
       }
       return element;
     }).toList();

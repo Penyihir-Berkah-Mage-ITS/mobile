@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:intl/intl.dart';
 
 class CardPost extends StatelessWidget {
   final PostModel data;
@@ -17,6 +18,20 @@ class CardPost extends StatelessWidget {
     super.key,
     required this.data,
   });
+
+  String formatTimeAgo(String timestamp) {
+    DateTime dateTime = DateTime.parse(timestamp);
+    Duration difference = DateTime.now().difference(dateTime);
+    if (difference.inDays > 0) {
+      return "${DateFormat('yMMMMd').format(DateTime.now().subtract(difference))} ago";
+    } else if (difference.inHours > 0) {
+      return "${difference.inHours} ${difference.inHours == 1 ? 'hour' : 'hours'} ago";
+    } else if (difference.inMinutes > 0) {
+      return "${difference.inMinutes} ${difference.inMinutes == 1 ? 'minute' : 'minutes'} ago";
+    } else {
+      return "Just now";
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +46,6 @@ class CardPost extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
             ),
-            // margin: EdgeInsets.symmetric(vertical: 2.5.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -43,8 +57,8 @@ class CardPost extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SvgPicture.asset(
-                            "assets/images/avatar_1.svg",
+                          CachedNetworkImage(
+                            imageUrl: data.User.profilePicture,
                             width: 52.w,
                             height: 52.w,
                           ),
@@ -54,12 +68,12 @@ class CardPost extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Text(
-                                  "skyfallin1",
+                                  data.User.username,
                                   style: body4BTextStyle(
                                       color: ColorConstants.slate[800]),
                                 ),
                                 Text(
-                                  "22m",
+                                  formatTimeAgo(data.CreatedAt),
                                   style: body5TextStyle(
                                     color: ColorConstants.slate[400],
                                   ),

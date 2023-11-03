@@ -91,7 +91,7 @@ class HomeController extends GetxController {
             : await PostRepository.like(data.id);
 
         updateData(post, !data.is_liked!);
-        showInfo('Post ${data.is_liked! ? "liked" : "unliked"}');
+        showInfo('Post ${!data.is_liked! ? "liked" : "unliked"}');
       } catch (_) {}
     });
   }

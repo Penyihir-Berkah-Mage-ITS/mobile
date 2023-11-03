@@ -4,37 +4,40 @@ import 'package:asa/services/api/request_method.dart';
 import 'package:dio/dio.dart';
 
 class PostRepository {
-  Future<List<PostModel>> getHome() async {
-    try {
-      var request = await fetchMultipleData<PostModel>(
-        url: "/api/v1/home/",
-        method: RequestMethod.GET,
-      );
-
-      return request.data!;
-    } catch (_) {
-      rethrow;
-    }
-  }
-
-  Future<List<PostModel>> getLatest() async {
-    try {
-      var request = await fetchMultipleData<PostModel>(
-        url: "/api/v1/home/latest",
-        method: RequestMethod.GET,
-      );
-
-      return request.data!;
-    } catch (_) {
-      rethrow;
-    }
-  }
-
-  Future<List<PostModel>> getPopular() async {
+  static Future<List<PostModel>> getTrending() async {
     try {
       var request = await fetchMultipleData<PostModel>(
         url: "/api/v1/home/popular",
         method: RequestMethod.GET,
+        isAlert: true,
+      );
+
+      return request.data!;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  static Future<List<PostModel>> getLatest() async {
+    try {
+      var request = await fetchMultipleData<PostModel>(
+        url: "/api/v1/home/latest",
+        method: RequestMethod.GET,
+        isAlert: true,
+      );
+
+      return request.data!;
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  static Future<List<PostModel>> getNearest() async {
+    try {
+      var request = await fetchMultipleData<PostModel>(
+        url: "/api/v1/home/nearest?lat=12.345&lng=67.890",
+        method: RequestMethod.GET,
+        isAlert: true,
       );
 
       return request.data!;

@@ -56,6 +56,7 @@ class HomePage extends GetView<HomeController> {
               controller.current.value = e;
             },
             children: [
+              // Trending
               RefreshIndicator(
                 onRefresh: () async {
                   print('asd');
@@ -63,14 +64,23 @@ class HomePage extends GetView<HomeController> {
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   controller: controller.p1Controller,
-                  child: Column(
-                    children: [
-                      SizedBox(height: 8.h),
-                      CardPost(),
-                    ],
+                  child: Obx(
+                    () => Column(
+                      children: [
+                        SizedBox(height: 8.h),
+                        ...controller.trending
+                            .map(
+                              (e) => CardPost(
+                                data: e,
+                              ),
+                            )
+                            .toList(),
+                      ],
+                    ),
                   ),
                 ),
               ),
+              // Nearest
               RefreshIndicator(
                 onRefresh: () async {
                   print('asd');
@@ -78,19 +88,23 @@ class HomePage extends GetView<HomeController> {
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   controller: controller.p2Controller,
-                  child: Column(
-                    children: [
-                      SizedBox(height: 8.h),
-                      CardPost(),
-                      CardPost(),
-                      CardPost(),
-                      CardPost(),
-                      CardPost(),
-                      CardPost(),
-                    ],
+                  child: Obx(
+                    () => Column(
+                      children: [
+                        SizedBox(height: 8.h),
+                        ...controller.nearest
+                            .map(
+                              (e) => CardPost(
+                                data: e,
+                              ),
+                            )
+                            .toList(),
+                      ],
+                    ),
                   ),
                 ),
               ),
+              // Latest
               RefreshIndicator(
                 onRefresh: () async {
                   print('asd');
@@ -98,14 +112,19 @@ class HomePage extends GetView<HomeController> {
                 child: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   controller: controller.p3Controller,
-                  child: Column(
-                    children: [
-                      SizedBox(height: 8.h),
-                      CardPost(),
-                      CardPost(),
-                      CardPost(),
-                      CardPost(),
-                    ],
+                  child: Obx(
+                    () => Column(
+                      children: [
+                        SizedBox(height: 8.h),
+                        ...controller.latest
+                            .map(
+                              (e) => CardPost(
+                                data: e,
+                              ),
+                            )
+                            .toList(),
+                      ],
+                    ),
                   ),
                 ),
               ),

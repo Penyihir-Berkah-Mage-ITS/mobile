@@ -26,8 +26,8 @@ class ProfileHeader extends StatelessWidget {
           data?.profilePicture != null
               ? Image.network(
                   data!.profilePicture,
-                  width: 88.w,
-                  height: 88.h,
+                  width: 76.w,
+                  height: 76.h,
                   fit: BoxFit.cover,
                 )
               : Container(),

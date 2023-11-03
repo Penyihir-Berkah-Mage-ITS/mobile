@@ -15,7 +15,8 @@ class PostModel implements ModelFactory {
   String userId;
   String content;
   String attachment;
-  int like;
+  int likes;
+  bool is_liked;
   String CreatedAt;
   String UpdatedAt;
 
@@ -26,8 +27,9 @@ class PostModel implements ModelFactory {
     required this.attachment,
     required this.content,
     required this.id,
-    required this.like,
+    required this.likes,
     required this.userId,
+    required this.is_liked,
   });
 
   factory PostModel.fromJson(Map<String, dynamic> json) =>

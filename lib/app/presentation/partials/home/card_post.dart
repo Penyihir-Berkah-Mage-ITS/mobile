@@ -1,3 +1,4 @@
+import 'package:asa/app/models/post/post_model.dart';
 import 'package:asa/app/presentation/widget/text_more.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
@@ -8,7 +9,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 class CardPost extends StatelessWidget {
-  const CardPost({super.key});
+  final PostModel data;
+  const CardPost({
+    super.key,
+    required this.data,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +70,7 @@ class CardPost extends StatelessWidget {
                       ),
                       SizedBox(height: 15.h),
                       TextMore(
-                        text:
-                            "Cerita ini berawal dari pertemuan saya dengan seorang pegawai di tempat kerja saya. Awalnya dia bersikap baik dan selalu membantu saya dalam pekerjaan saya. Suatu hari, saya ingin meminta bantuan dia karena ada hal asldkj alskdj alskdj laksjdlkasjdklajsdlkajsdlk asdlkj",
+                        text: data.content,
                         textStyle: body5TextStyle(
                           color: Colors.black,
                         ),

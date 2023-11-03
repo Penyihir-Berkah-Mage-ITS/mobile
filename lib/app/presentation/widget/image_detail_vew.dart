@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:asa/routes/app_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -43,8 +45,8 @@ class ImageDetailView extends StatelessWidget {
                   child: CircularProgressIndicator(),
                 ),
               )
-            : Image.asset(
-                link,
+            : Image.file(
+                File(link),
                 width: width,
                 height: height,
                 fit: fit,

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
@@ -10,7 +12,13 @@ class ImagePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PhotoView(
-        imageProvider: CachedNetworkImageProvider(Get.parameters['url']!),
+        imageProvider: Get.parameters['isNetwork']! == "true"
+            ? CachedNetworkImageProvider(Get.parameters['url']!)
+            : FileImage(
+                File(Get.parameters['url']!),
+              ) as ImageProvider<Object>,
+
+        // imageProvider: CachedNetworkImageProvider(Get.parameters['url']!),
         disableGestures: false,
       ),
     );

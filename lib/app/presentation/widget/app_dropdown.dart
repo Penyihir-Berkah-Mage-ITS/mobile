@@ -26,7 +26,7 @@ class AppDropdown<T> extends StatefulWidget {
   final String? placeholder;
   final bool isDisabled;
   final String p;
-  final String? Function(T?)? validator;
+  final String? Function(T? e)? validator;
   final String? label;
 
   const AppDropdown({
@@ -46,7 +46,7 @@ class AppDropdown<T> extends StatefulWidget {
   State<AppDropdown> createState() => _AppDropdownState<T>();
 }
 
-class _AppDropdownState<T> extends State<AppDropdown> {
+class _AppDropdownState<T> extends State<AppDropdown<T>> {
   T? value;
   final _key = GlobalKey();
   final FocusNode _focus = FocusNode();
@@ -87,20 +87,22 @@ class _AppDropdownState<T> extends State<AppDropdown> {
             border: InputBorder.none,
           ),
           validator: (T? e) {
-            if (widget.validator != null) {
-              var a = widget.validator!(e);
-              if (a != null) {
-                setState(() {
-                  isValid = true;
-                });
-              } else {
-                setState(() {
-                  isValid = false;
-                });
-              }
-              return a;
-            }
             return null;
+            // if (widget.validator != null) {
+            //   var a = widget.validator!(e);
+            //   if (a != null) {
+            //     setState(() {
+            //       isValid = true;
+            //     });
+            //   } else {
+            //     setState(() {
+            //       isValid = false;
+            //     });
+            //   }
+            //   return a;
+            // }
+
+            // return null;
           },
           key: _key,
           barrierColor: Color.fromRGBO(0, 0, 0, 0.3),
@@ -172,7 +174,6 @@ class _AppDropdownState<T> extends State<AppDropdown> {
                           -1) {
                         isValid = false;
                       }
-                      print(value);
 
                       return Text(
                         isValid

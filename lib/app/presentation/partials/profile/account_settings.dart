@@ -1,7 +1,9 @@
+import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class AccountSettings extends StatelessWidget {
   const AccountSettings({super.key});
@@ -21,7 +23,9 @@ class AccountSettings extends StatelessWidget {
           child: Column(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppRoute.editProfile);
+                },
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 6),
                   child: Row(

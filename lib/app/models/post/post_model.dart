@@ -16,12 +16,12 @@ class PostModel implements ModelFactory {
   String content;
   String attachment;
   int likes;
-  bool is_liked;
+  bool? is_liked;
   String CreatedAt;
   String UpdatedAt;
 
   @JsonKey(name: "total_comment")
-  int totalComment;
+  int? totalComment;
 
   PostModel({
     required this.CreatedAt,

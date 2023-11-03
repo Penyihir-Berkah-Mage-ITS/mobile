@@ -56,6 +56,9 @@ class _AppDropdownState<T> extends State<AppDropdown> {
   @override
   void initState() {
     super.initState();
+    setState(() {
+      value = widget.value;
+    });
 
     _focus.addListener(() {
       setState(() {
@@ -83,7 +86,7 @@ class _AppDropdownState<T> extends State<AppDropdown> {
             contentPadding: EdgeInsets.zero,
             border: InputBorder.none,
           ),
-          validator: (e) {
+          validator: (T? e) {
             if (widget.validator != null) {
               var a = widget.validator!(e);
               if (a != null) {
@@ -169,6 +172,7 @@ class _AppDropdownState<T> extends State<AppDropdown> {
                           -1) {
                         isValid = false;
                       }
+                      print(value);
 
                       return Text(
                         isValid

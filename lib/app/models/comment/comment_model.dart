@@ -39,7 +39,7 @@ class CommentModel implements ModelFactory {
     required this.postId,
     required this.user,
     required this.userId,
-    this.isLiked,
+    required this.isLiked,
   });
 
   factory CommentModel.fromJson(Map<String, dynamic> json) =>

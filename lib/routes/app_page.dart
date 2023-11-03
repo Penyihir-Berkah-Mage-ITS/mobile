@@ -75,6 +75,7 @@ List<GetPage<String>> appPage() {
       name: AppRoute.editProfile,
       page: () => EditProfilePage(),
       binding: EditProfileBinding(),
+      transition: Transition.rightToLeftWithFade,
     ),
     GetPage(
       name: AppRoute.home,

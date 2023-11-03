@@ -15,4 +15,19 @@ class UserRepository {
       rethrow;
     }
   }
+
+  static Future<UserModel> edit(Map<String, String> data) async {
+    try {
+      var request = await fetchData<UserModel>(
+        url: "/api/v1/user/edit-profile",
+        isAlert: true,
+        data: data,
+        method: RequestMethod.POST,
+      );
+
+      return request.data!;
+    } catch (_) {
+      rethrow;
+    }
+  }
 }

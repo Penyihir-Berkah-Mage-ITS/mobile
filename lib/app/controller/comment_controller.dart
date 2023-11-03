@@ -42,17 +42,26 @@ class CommentController extends GetxController {
     });
   }
 
+  void updateData(CommentModel data) {
+    comments.value = comments.map((element) {
+      if (data.id == element.id) {
+        return data;
+      }
+      return element;
+    }).toList();
+  }
+
   void like(CommentModel data) {
     var debouncer = Debouncer(duration: Duration(milliseconds: 500));
     debouncer.run(() async {
       try {
-        data.isLiked!
+        var comment = data.isLiked!
             ? await CommentRepository.unlike(data.id, Get.parameters['id']!)
             : await CommentRepository.like(data.id, Get.parameters['id']!);
 
-        // updateData(post, !data.is_liked!);
+        updateData(comment);
         showInfo('Post ${!data.isLiked! ? "liked" : "unliked"}');
-        getAllComment();
+        // getAllComment();
       } catch (_) {}
     });
   }

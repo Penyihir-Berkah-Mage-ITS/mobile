@@ -95,12 +95,12 @@ class HomeController extends GetxController {
     var debouncer = Debouncer(duration: Duration(milliseconds: 500));
     debouncer.run(() async {
       try {
-        var post = data.is_liked
+        var post = data.is_liked!
             ? await PostRepository.unlike(data.id)
             : await PostRepository.like(data.id);
 
-        updateData(post, !data.is_liked);
-        showInfo('Post ${!data.is_liked ? "liked" : "unliked"}');
+        updateData(post, !data.is_liked!);
+        showInfo('Post ${!data.is_liked! ? "liked" : "unliked"}');
       } catch (_) {}
     });
   }

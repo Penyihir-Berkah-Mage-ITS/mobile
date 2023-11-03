@@ -1,6 +1,7 @@
 import 'package:asa/app/presentation/widget/app_bottombar.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
+import 'package:asa/utils/open_link.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +13,7 @@ class SpeakupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants.primary[500],
+      backgroundColor: ColorConstants.slate[25],
       body: Stack(
         children: [
           Container(
@@ -61,7 +62,9 @@ class SpeakupPage extends StatelessWidget {
                   child: Column(
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          openLink(Uri.parse("tel:129"));
+                        },
                         child: Container(
                           padding: EdgeInsets.symmetric(
                             horizontal: 20.w,

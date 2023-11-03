@@ -78,7 +78,7 @@ class CardComment extends StatelessWidget {
                 ),
                 SizedBox(height: 2.h),
                 Text(
-                  "220",
+                  data.like.toString(),
                   style: body5TextStyle(
                     height: 1,
                     color: ColorConstants.slate[400],

@@ -46,15 +46,20 @@ class AppBottomBar extends StatelessWidget {
                     : null,
               ),
             ),
-            SvgPicture.asset(
-              "assets/icons/speak.svg",
-              width: 22.w,
-              colorFilter: route == AppRoute.speakup
-                  ? ColorFilter.mode(
-                      ColorConstants.primary[500]!,
-                      BlendMode.srcIn,
-                    )
-                  : null,
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(AppRoute.speakup);
+              },
+              child: SvgPicture.asset(
+                "assets/icons/speak.svg",
+                width: 22.w,
+                colorFilter: route == AppRoute.speakup
+                    ? ColorFilter.mode(
+                        ColorConstants.primary[500]!,
+                        BlendMode.srcIn,
+                      )
+                    : null,
+              ),
             ),
             GestureDetector(
               onTap: () {

@@ -1,6 +1,6 @@
 import 'package:asa/app/controller/home_controller.dart';
 import 'package:asa/app/models/post/post_model.dart';
-import 'package:asa/app/presentation/widget/image_detail_vew.dart';
+import 'package:asa/app/presentation/partials/home/card_attachment.dart';
 import 'package:asa/app/presentation/widget/text_more.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
@@ -97,37 +97,7 @@ class CardPost extends StatelessWidget {
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    Builder(builder: (context) {
-                      var link = data.attachment;
-                      if (link.contains("tccmlkbaplvfccxxptsv")) {
-                        return Container();
-                      }
-
-                      var extens = link.split(".").last;
-                      if (extens == "jpeg" ||
-                          extens == "png" ||
-                          extens == "jpg" ||
-                          extens == "svg") {
-                        return Container(
-                          color: Colors.white,
-                          child: ImageDetailView(
-                            link: link,
-                            isNetwork: true,
-                            width: 1.sw,
-                            fit: BoxFit.cover,
-                          ),
-                        );
-                      }
-
-                      return Container();
-                    }),
-                  ],
-                ),
+                CardAttachment(data: data),
                 Container(
                   color: Colors.white,
                   padding: EdgeInsets.only(bottom: 16.h),

@@ -9,6 +9,7 @@ class AppRoute {
   static String registerForm = "/register/form";
 
   static String profile = "/profile";
+  static String editProfile = "/profile/edit";
 
   static String home = "/home";
   static String post(String id) => "/post/$id";

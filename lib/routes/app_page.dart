@@ -1,5 +1,6 @@
 import 'package:asa/app/bindings/chat_binding.dart';
 import 'package:asa/app/bindings/comment_bindings.dart';
+import 'package:asa/app/bindings/edit_profile_binding.dart';
 import 'package:asa/app/bindings/home_bindings.dart';
 import 'package:asa/app/bindings/login_binding.dart';
 import 'package:asa/app/bindings/newpost_binding.dart';
@@ -14,6 +15,7 @@ import 'package:asa/app/presentation/view/image_page.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
 import 'package:asa/app/presentation/view/newpost_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
+import 'package:asa/app/presentation/view/profile/edit_profile_page.dart';
 import 'package:asa/app/presentation/view/profile/profile_page.dart';
 import 'package:asa/app/presentation/view/register/register_avatar_page.dart';
 import 'package:asa/app/presentation/view/register/register_form_page.dart';
@@ -68,6 +70,11 @@ List<GetPage<String>> appPage() {
     GetPage(
       name: AppRoute.profile,
       page: () => ProfilePage(),
+    ),
+    GetPage(
+      name: AppRoute.editProfile,
+      page: () => EditProfilePage(),
+      binding: EditProfileBinding(),
     ),
     GetPage(
       name: AppRoute.home,

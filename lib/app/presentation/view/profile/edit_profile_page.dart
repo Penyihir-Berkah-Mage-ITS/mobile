@@ -3,6 +3,7 @@ import 'package:asa/app/presentation/widget/app_button.dart';
 import 'package:asa/app/presentation/widget/app_dropdown.dart';
 import 'package:asa/app/presentation/widget/app_header.dart';
 import 'package:asa/app/presentation/widget/app_input.dart';
+import 'package:asa/app/presentation/widget/image_detail_vew.dart';
 import 'package:asa/app/presentation/widget/scrollable_constraints.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -25,17 +26,33 @@ class EditProfilePage extends GetView<EditProfileController> {
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
             child: Column(
               children: [
-                controller.user.value != null
-                    ? CachedNetworkImage(
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(60.w),
+                  clipBehavior: Clip.antiAlias,
+                  child: Obx(() {
+                    if (controller.user.value == null) {
+                      return Container();
+                    }
+                    if (controller.picture.value == null) {
+                      return CachedNetworkImage(
                         imageUrl: controller.user.value!.profilePicture,
                         width: 100.w,
                         height: 100.h,
                         fit: BoxFit.cover,
-                      )
-                    : Container(),
+                      );
+                    }
+                    return ImageDetailView(
+                      link: controller.picture.value!.path,
+                      isNetwork: false,
+                      width: 100.w,
+                      height: 100.h,
+                      fit: BoxFit.cover,
+                    );
+                  }),
+                ),
                 SizedBox(height: 12.h),
                 InkWell(
-                  onTap: () {},
+                  onTap: controller.pickAvatar,
                   child: Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),

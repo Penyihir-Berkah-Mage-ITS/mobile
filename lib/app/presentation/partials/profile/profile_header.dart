@@ -1,8 +1,10 @@
 import 'package:asa/app/controller/cache_controller.dart';
+import 'package:asa/app/presentation/widget/image_detail_vew.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class ProfileHeader extends StatelessWidget {
   CacheController controller = CacheController.i;
@@ -24,11 +26,17 @@ class ProfileHeader extends StatelessWidget {
       child: Row(
         children: [
           data?.profilePicture != null
-              ? Image.network(
-                  data!.profilePicture,
-                  width: 76.w,
-                  height: 76.h,
-                  fit: BoxFit.cover,
+              ? ClipRRect(
+                  borderRadius: BorderRadius.circular(50.w),
+                  child: Obx(
+                    () => ImageDetailView(
+                      link: controller.user.value!.profilePicture,
+                      isNetwork: true,
+                      width: 76.w,
+                      height: 76.h,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 )
               : Container(),
           SizedBox(width: 12.w),
@@ -36,16 +44,20 @@ class ProfileHeader extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  data?.username ?? '',
-                  style: body3BTextStyle(),
+                Obx(
+                  () => Text(
+                    controller.user.value?.username ?? '',
+                    style: body3BTextStyle(),
+                  ),
                 ),
-                Text(
-                  data?.phone == ""
-                      ? "Phone number not set"
-                      : (data?.phone ?? ""),
-                  style: body5TextStyle(
-                    color: ColorConstants.slate[400],
+                Obx(
+                  () => Text(
+                    controller.user.value?.phone == ""
+                        ? "Phone number not set"
+                        : (data?.phone ?? ""),
+                    style: body5TextStyle(
+                      color: ColorConstants.slate[400],
+                    ),
                   ),
                 ),
                 SizedBox(height: 4.h),

@@ -1,9 +1,10 @@
 import 'package:asa/app/models/comment/comment_model.dart';
 import 'package:asa/styles/color_constants.dart';
+import 'package:asa/utils/format_timeago.dart';
 import 'package:asa/utils/text_styles.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 class CardComment extends StatelessWidget {
   final CommentModel data;
@@ -14,7 +15,6 @@ class CardComment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(data.user);
     return GestureDetector(
       onDoubleTap: () {
         // ADD LIKE
@@ -25,8 +25,8 @@ class CardComment extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SvgPicture.asset(
-              "assets/images/avatar_2.svg",
+            CachedNetworkImage(
+              imageUrl: data.user.profilePicture,
               width: 50.w,
               height: 50.w,
               fit: BoxFit.cover,
@@ -46,7 +46,7 @@ class CardComment extends StatelessWidget {
                       ),
                       SizedBox(width: 4.w),
                       Text(
-                        "22m",
+                        formatTimeAgo(data.CreatedAt),
                         style: body5TextStyle(
                           color: ColorConstants.slate[400],
                         ),

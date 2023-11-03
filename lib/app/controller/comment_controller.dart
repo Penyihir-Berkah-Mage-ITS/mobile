@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CommentController extends GetxController {
+  static CommentController get i => Get.find<CommentController>();
+
   RxList<CommentModel> comments = <CommentModel>[].obs;
 
   TextEditingController commentInput = TextEditingController();
@@ -36,6 +38,21 @@ class CommentController extends GetxController {
         getAllComment();
 
         showInfo("Success comment");
+      } catch (_) {}
+    });
+  }
+
+  void like(CommentModel data) {
+    var debouncer = Debouncer(duration: Duration(milliseconds: 500));
+    debouncer.run(() async {
+      try {
+        data.isLiked!
+            ? await CommentRepository.unlike(data.id)
+            : await CommentRepository.like(data.id);
+
+        // updateData(post, !data.is_liked!);
+        showInfo('Post ${!data.isLiked! ? "liked" : "unliked"}');
+        getAllComment();
       } catch (_) {}
     });
   }

@@ -1,3 +1,4 @@
+import 'package:asa/app/controller/comment_controller.dart';
 import 'package:asa/app/models/comment/comment_model.dart';
 import 'package:asa/styles/color_constants.dart';
 import 'package:asa/utils/format_timeago.dart';
@@ -7,8 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardComment extends StatelessWidget {
+  CommentController controller = CommentController.i;
   final CommentModel data;
-  const CardComment({
+  CardComment({
     super.key,
     required this.data,
   });
@@ -17,7 +19,7 @@ class CardComment extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onDoubleTap: () {
-        // ADD LIKE
+        controller.like(data);
       },
       child: Container(
         width: 1.sw,
@@ -72,16 +74,23 @@ class CardComment extends StatelessWidget {
             Column(
               children: [
                 Icon(
-                  Icons.favorite_outline,
+                  (data.isLiked ?? false)
+                      ? Icons.favorite
+                      : Icons.favorite_outline,
                   size: 12.w,
-                  color: ColorConstants.slate[400],
+                  color: (data.isLiked ?? false)
+                      ? ColorConstants.error
+                      : ColorConstants.slate[400],
                 ),
                 SizedBox(height: 2.h),
                 Text(
                   data.like.toString(),
                   style: body5TextStyle(
+                    weight: (data.isLiked ?? false) ? FontWeight.w500 : null,
                     height: 1,
-                    color: ColorConstants.slate[400],
+                    color: (data.isLiked ?? false)
+                        ? ColorConstants.error
+                        : ColorConstants.slate[400],
                   ),
                 )
               ],

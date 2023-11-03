@@ -30,4 +30,34 @@ class CommentRepository {
       rethrow;
     }
   }
+
+  static Future<CommentModel> like(
+    String id,
+  ) async {
+    try {
+      var request = await fetchData<CommentModel>(
+        url: "/api/v1/post/qwe/$id/like",
+        method: RequestMethod.POST,
+      );
+
+      return request.data!;
+    } catch (err) {
+      rethrow;
+    }
+  }
+
+  static Future<CommentModel> unlike(
+    String id,
+  ) async {
+    try {
+      var request = await fetchData<CommentModel>(
+        url: "/api/v1/post/qwe/$id/unlike",
+        method: RequestMethod.DELETE,
+      );
+
+      return request.data!;
+    } catch (err) {
+      rethrow;
+    }
+  }
 }

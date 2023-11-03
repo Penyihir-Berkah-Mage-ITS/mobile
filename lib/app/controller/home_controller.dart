@@ -65,7 +65,7 @@ class HomeController extends GetxController {
     trending.value = trending.map((element) {
       if (element.id == data.id) {
         return element.copyWith(
-          likes: element.likes,
+          likes: data.likes,
           is_liked: isLiked,
         );
       }
@@ -74,7 +74,7 @@ class HomeController extends GetxController {
     nearest.value = nearest.map((element) {
       if (element.id == data.id) {
         return element.copyWith(
-          likes: element.likes,
+          likes: data.likes,
           is_liked: isLiked,
         );
       }
@@ -84,7 +84,7 @@ class HomeController extends GetxController {
     latest.value = latest.map((element) {
       if (element.id == data.id) {
         return element.copyWith(
-          likes: element.likes,
+          likes: data.likes,
           is_liked: isLiked,
         );
       }

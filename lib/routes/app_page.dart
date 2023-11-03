@@ -10,6 +10,7 @@ import 'package:asa/app/presentation/view/chat_page.dart';
 import 'package:asa/app/presentation/view/home_chat_page.dart';
 import 'package:asa/app/presentation/view/comment_page.dart';
 import 'package:asa/app/presentation/view/home_page.dart';
+import 'package:asa/app/presentation/view/image_page.dart';
 import 'package:asa/app/presentation/view/login_page.dart';
 import 'package:asa/app/presentation/view/newpost_page.dart';
 import 'package:asa/app/presentation/view/onboarding_page.dart';
@@ -104,6 +105,11 @@ List<GetPage<String>> appPage() {
       page: () => ChatPage(),
       binding: ChatBinding(),
       transition: Transition.rightToLeft,
+    ),
+    GetPage(
+      name: AppRoute.imageDetail,
+      page: () => ImagePage(),
+      transition: Transition.cupertino,
     ),
   ];
 }

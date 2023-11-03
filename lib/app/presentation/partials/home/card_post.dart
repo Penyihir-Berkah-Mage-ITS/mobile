@@ -1,5 +1,6 @@
 import 'package:asa/app/controller/home_controller.dart';
 import 'package:asa/app/models/post/post_model.dart';
+import 'package:asa/app/presentation/widget/image_detail_vew.dart';
 import 'package:asa/app/presentation/widget/text_more.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
@@ -112,13 +113,14 @@ class CardPost extends StatelessWidget {
                           extens == "png" ||
                           extens == "jpg" ||
                           extens == "svg") {
-                        return CachedNetworkImage(
-                          imageUrl: link,
-                          width: 1.sw,
-                          placeholder: (context, url) => Center(
-                            child: CircularProgressIndicator(),
+                        return Container(
+                          color: Colors.white,
+                          child: ImageDetailView(
+                            link: link,
+                            isNetwork: true,
+                            width: 1.sw,
+                            fit: BoxFit.cover,
                           ),
-                          fit: BoxFit.cover,
                         );
                       }
 

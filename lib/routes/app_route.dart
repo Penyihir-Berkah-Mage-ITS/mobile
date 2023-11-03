@@ -19,4 +19,6 @@ class AppRoute {
   static String newPost = "/new-post";
   static String chat = "/chat";
   static String chatRoom(String id) => "/chat/$id";
+
+  static String imageDetail = "/assets/image";
 }

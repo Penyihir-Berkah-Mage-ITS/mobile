@@ -51,6 +51,7 @@ class PostRepository {
       var request = await fetchData<PostModel>(
         url: "/api/v1/post/$id",
         method: RequestMethod.GET,
+        isAlert: false,
       );
 
       return request.data!;
@@ -59,10 +60,10 @@ class PostRepository {
     }
   }
 
-  Future<PostModel> create(String id, FormData data) async {
+  static Future<PostModel> create(FormData data) async {
     try {
       var request = await fetchData<PostModel>(
-        url: "/api/v1/post/create",
+        url: "/api/v1/post/create?lat=12.345&lng=67.890",
         method: RequestMethod.POST,
         data: data,
       );

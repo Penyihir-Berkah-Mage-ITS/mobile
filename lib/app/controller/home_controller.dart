@@ -40,21 +40,21 @@ class HomeController extends GetxController {
     print('asd');
   }
 
-  void getTrending() async {
+  Future getTrending() async {
     try {
       var request = await PostRepository.getTrending();
       trending.value = request;
     } catch (_) {}
   }
 
-  void getNearest() async {
+  Future getNearest() async {
     try {
       var request = await PostRepository.getNearest();
       nearest.value = request;
     } catch (_) {}
   }
 
-  void getLatest() async {
+  Future getLatest() async {
     try {
       var request = await PostRepository.getLatest();
       latest.value = request;

@@ -105,6 +105,7 @@ class RegisterFormPage extends GetView<RegisterController> {
                       controller: controller.confirmPassword,
                       label: "Konfirmasi Password",
                       obscureText: true,
+                      prefixIcon: Icon(Icons.password),
                       placeholder: "Ulangi password anda",
                       validator: (e) {
                         if (e!.isEmpty) {

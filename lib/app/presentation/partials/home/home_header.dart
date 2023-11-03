@@ -180,7 +180,7 @@ class HomeHeader extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 175.h;
+  double get maxExtent => 160.h;
 
   @override
   double get minExtent => 95.h;

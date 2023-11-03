@@ -27,11 +27,14 @@ class CardComment extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImage(
-              imageUrl: data.user.profilePicture,
-              width: 50.w,
-              height: 50.w,
-              fit: BoxFit.cover,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(30.w),
+              child: CachedNetworkImage(
+                imageUrl: data.user.profilePicture,
+                width: 50.w,
+                height: 50.w,
+                fit: BoxFit.cover,
+              ),
             ),
             SizedBox(width: 8.w),
             Flexible(

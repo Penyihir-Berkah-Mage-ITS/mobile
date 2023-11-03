@@ -58,10 +58,13 @@ class CardPost extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          CachedNetworkImage(
-                            imageUrl: data.User.profilePicture,
-                            width: 52.w,
-                            height: 52.w,
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(30.w),
+                            child: CachedNetworkImage(
+                              imageUrl: data.User.profilePicture,
+                              width: 52.w,
+                              height: 52.w,
+                            ),
                           ),
                           SizedBox(width: 8.w),
                           Flexible(

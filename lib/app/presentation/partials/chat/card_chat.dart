@@ -36,7 +36,7 @@ class CardChat extends StatelessWidget {
                   Hero(
                     tag: "chat_name",
                     child: Text(
-                      "Bram",
+                      "skyfallin1",
                       style: body4BTextStyle(color: ColorConstants.slate[800]),
                     ),
                   ),

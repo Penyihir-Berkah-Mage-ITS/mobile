@@ -25,14 +25,23 @@ class ChatPage extends GetView<ChatController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
-                    BubbleChat(chat: 'asd', isMine: true),
+                    BubbleChat(
+                      chat: "Halo sebelumnya sorry banget nih ganggu",
+                      isMine: true,
+                    ),
+                    BubbleChat(
+                      chat: "Haloo 👋, it's okey,",
+                      isMine: false,
+                    ),
+                    BubbleChat(
+                      chat: 'Halo saya  *****, bolehkah saya bercerita?',
+                      isMine: true,
+                    ),
+                    BubbleChat(
+                      chat:
+                          "Ada yang bisa kubantu? Mungkin bisa cerita-cerita aja kok. Aku ga ngegigit hehe 😁",
+                      isMine: false,
+                    ),
                   ],
                 ),
               ),

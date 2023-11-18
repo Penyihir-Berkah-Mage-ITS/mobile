@@ -22,7 +22,9 @@ class BubbleChat extends StatelessWidget {
           clipper: isMine ? MyChatClipper() : FriendClipper(),
           child: Container(
             width: 236.w,
-            padding: EdgeInsets.fromLTRB(16.w, 10.h, 33.w, 10.h),
+            padding: isMine
+                ? EdgeInsets.fromLTRB(16.w, 10.h, 33.w, 10.h)
+                : EdgeInsets.fromLTRB(33.w, 10.h, 16.w, 10.h),
             color: isMine
                 ? ColorConstants.primary[500]
                 : ColorConstants.slate[100],

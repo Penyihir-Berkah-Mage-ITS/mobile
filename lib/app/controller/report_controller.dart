@@ -5,6 +5,7 @@ import 'package:asa/app/models/location/regency_model.dart';
 import 'package:asa/app/repository/location_repository.dart';
 import 'package:asa/utils/filepicker_handler.dart';
 import 'package:asa/utils/show_alert.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ReportController extends GetxController {
@@ -14,6 +15,8 @@ class ReportController extends GetxController {
   RxnString selectedRegency = RxnString();
   Rxn<File> proof = Rxn<File>();
   RxBool invalidProof = false.obs;
+
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
   void getProvinces() {
     LocationRepository.getProvinces().then((value) {
@@ -47,5 +50,9 @@ class ReportController extends GetxController {
   void onInit() {
     super.onInit;
     getProvinces();
+  }
+
+  void submit() {
+    if (!formkey.currentState!.validate()) {}
   }
 }

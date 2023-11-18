@@ -96,7 +96,6 @@ class ReportPage extends GetView<ReportController> {
                     placeholder: 'Pilih Kota/Kabupaten',
                     value: controller.selectedRegency.value,
                     validator: (e) {
-                      print(e);
                       if (e == null) {
                         return "Kota/Kabupaten tidak boleh kosong";
                       }
@@ -111,9 +110,10 @@ class ReportPage extends GetView<ReportController> {
                 AppInput(
                   label: "Nomor Telepon Pelapor",
                   controller: TextEditingController(),
+                  keyboardType: TextInputType.number,
                   placeholder: "Masukkan Nomor Telepon Anda",
                   validator: (e) {
-                    if (e!.isNotEmpty) {
+                    if (e!.isEmpty) {
                       return "Nomor telepon tidak boleh kosong";
                     }
                     if (!e.isPhoneNumber) {
@@ -238,7 +238,9 @@ class ReportPage extends GetView<ReportController> {
                 Spacer(),
                 SizedBox(height: 20.h),
                 AppButton(
-                  onPressed: controller.submit,
+                  onPressed: () {
+                    controller.submit(context);
+                  },
                   text: "Buat Laporan",
                 ),
                 SizedBox(height: 20.h),

@@ -111,7 +111,6 @@ class _AppInputState extends State<AppInput> {
       autovalidateMode: widget.autovalidateMode,
       enabled: true,
       validator: (e) {
-        print(e);
         if (widget.validator == null) {
           return null;
         }

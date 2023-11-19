@@ -43,10 +43,13 @@ class CardComment extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        data.user.username,
-                        style: body5BTextStyle(
-                          color: ColorConstants.slate[800],
+                      Expanded(
+                        child: Text(
+                          data.user.username,
+                          style: body5BTextStyle(
+                            color: ColorConstants.slate[800],
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       SizedBox(width: 4.w),
@@ -55,6 +58,7 @@ class CardComment extends StatelessWidget {
                         style: body5TextStyle(
                           color: ColorConstants.slate[400],
                         ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),

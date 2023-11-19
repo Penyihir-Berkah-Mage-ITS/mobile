@@ -26,7 +26,9 @@ class NewPostPage extends GetView<NewPostController> {
           leadingWidget: AppButton(
             borderRadius: BorderRadius.circular(6.w),
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-            onPressed: controller.post,
+            onPressed: () {
+              controller.post(context);
+            },
             text: "Post",
             textStyle: body4TextStyle(
               weight: FontWeight.w600,

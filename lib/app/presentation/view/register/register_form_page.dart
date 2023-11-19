@@ -76,6 +76,7 @@ class RegisterFormPage extends GetView<RegisterController> {
                         return null;
                       },
                     ),
+                    SizedBox(height: 12.h),
                     AppInput(
                       textInputAction: TextInputAction.next,
                       controller: controller.form['password']!,

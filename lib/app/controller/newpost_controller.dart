@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:asa/app/controller/home_controller.dart';
+import 'package:asa/app/presentation/widget/app_loading.dart';
 import 'package:asa/app/repository/post_repository.dart';
+import 'package:asa/utils/debouncer.dart';
 import 'package:asa/utils/filepicker_handler.dart';
 import 'package:asa/utils/show_alert.dart';
 import 'package:dio/dio.dart';
@@ -60,29 +62,46 @@ class NewPostController extends GetxController {
     type.value = 1;
   }
 
-  void post() async {
+  RxBool isLoading = false.obs;
+  final debouncer = Debouncer(duration: Duration(milliseconds: 300));
+
+  void post(BuildContext context) async {
     if (formKey.currentState!.validate()) {
       // var data = formConverter(form);
-      try {
-        Map<String, dynamic> data = {'content': form['content']!.text};
+      debouncer.run(() async {
+        try {
+          isLoading.value = true;
 
-        if (attachment.value != null) {
-          data['attachment'] = await MultipartFile.fromFile(
-            attachment.value!.path,
-          );
+          Map<String, dynamic> data = {'content': form['content']!.text};
+
+          if (attachment.value != null) {
+            data['attachment'] = await MultipartFile.fromFile(
+              attachment.value!.path,
+            );
+          }
+
+          // ignore: use_build_context_synchronously
+          showLoadingDialog(context, isLoading);
+
+          final formData = FormData.fromMap(data);
+          await PostRepository.create(formData);
+          await HomeController.i.getLatest();
+          await HomeController.i.getNearest();
+          await HomeController.i.getTrending();
+
+          await Future.delayed(Duration(milliseconds: 50), () async {
+            isLoading.value = false;
+            await Future.delayed(Duration(milliseconds: 50), () {
+              isLoading.value = true;
+            });
+          });
+
+          showAlert("Success create post", isSuccess: true);
+          Get.back();
+        } catch (err) {
+          showAlert(err.toString());
         }
-
-        final formData = FormData.fromMap(data);
-        await PostRepository.create(formData);
-        await HomeController.i.getLatest();
-        await HomeController.i.getNearest();
-        await HomeController.i.getTrending();
-
-        showAlert("Success create post", isSuccess: true);
-        Get.back();
-      } catch (err) {
-        showAlert(err.toString());
-      }
+      });
     }
   }
 }

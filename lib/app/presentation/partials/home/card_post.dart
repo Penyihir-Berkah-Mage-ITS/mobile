@@ -4,13 +4,13 @@ import 'package:asa/app/presentation/partials/home/card_attachment.dart';
 import 'package:asa/app/presentation/widget/text_more.dart';
 import 'package:asa/routes/app_route.dart';
 import 'package:asa/styles/color_constants.dart';
+import 'package:asa/utils/format_timeago.dart';
 import 'package:asa/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:intl/intl.dart';
 
 class CardPost extends StatelessWidget {
   final PostModel data;
@@ -19,20 +19,6 @@ class CardPost extends StatelessWidget {
     super.key,
     required this.data,
   });
-
-  String formatTimeAgo(String timestamp) {
-    DateTime dateTime = DateTime.parse(timestamp);
-    Duration difference = DateTime.now().difference(dateTime);
-    if (difference.inDays > 0) {
-      return "${DateFormat('yMMMMd').format(DateTime.now().subtract(difference))} ago";
-    } else if (difference.inHours > 0) {
-      return "${difference.inHours} ${difference.inHours == 1 ? 'hour' : 'hours'} ago";
-    } else if (difference.inMinutes > 0) {
-      return "${difference.inMinutes} ${difference.inMinutes == 1 ? 'minute' : 'minutes'} ago";
-    } else {
-      return "Just now";
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

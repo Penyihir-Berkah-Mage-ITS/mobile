@@ -31,6 +31,7 @@ class ReportPage extends GetView<ReportController> {
               children: [
                 SizedBox(height: 16.h),
                 AppInput(
+                  textInputAction: TextInputAction.next,
                   label: "Nama Pelapor",
                   controller: TextEditingController(),
                   placeholder: "Gunakan Nama Asli Anda",
@@ -39,6 +40,7 @@ class ReportPage extends GetView<ReportController> {
                 ),
                 SizedBox(height: 12.h),
                 AppInput(
+                  textInputAction: TextInputAction.next,
                   label: "Alamat Pelapor",
                   controller: TextEditingController(),
                   placeholder: "Lokasi Anda saat ini",
@@ -108,6 +110,7 @@ class ReportPage extends GetView<ReportController> {
                 ),
                 SizedBox(height: 12.h),
                 AppInput(
+                  textInputAction: TextInputAction.next,
                   label: "Nomor Telepon Pelapor",
                   controller: TextEditingController(),
                   keyboardType: TextInputType.number,
@@ -124,6 +127,7 @@ class ReportPage extends GetView<ReportController> {
                 ),
                 SizedBox(height: 12.h),
                 AppInput(
+                  textInputAction: TextInputAction.done,
                   label: "Detail Laporan",
                   controller: TextEditingController(),
                   maxLines: 5,
